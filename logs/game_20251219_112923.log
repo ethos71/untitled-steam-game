@@ -1,0 +1,25 @@
+2025-12-19 11:29:23,744 - INFO - Initializing NES Roguelike
+2025-12-19 11:29:23,935 - INFO - Starting new game
+2025-12-19 11:29:23,939 - INFO - Hero spawned at (15, 12)
+2025-12-19 11:29:23,939 - INFO - Generated 1 treasure chests
+2025-12-19 11:29:23,939 - INFO - Game initialized successfully
+2025-12-19 11:29:23,939 - INFO - Starting game loop
+2025-12-19 11:29:23,940 - ERROR - Game crashed: 'MenuSystem' object has no attribute 'active'
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 306, in run
+    self.render()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 292, in render
+    if self.menu.active:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'MenuSystem' object has no attribute 'active'
+2025-12-19 11:29:23,941 - INFO - Game loop ended
+2025-12-19 11:29:23,981 - ERROR - Fatal error: 'MenuSystem' object has no attribute 'active'
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 318, in main
+    game.run()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 306, in run
+    self.render()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 292, in render
+    if self.menu.active:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'MenuSystem' object has no attribute 'active'

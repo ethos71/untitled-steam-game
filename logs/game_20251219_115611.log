@@ -1,0 +1,73 @@
+2025-12-19 11:56:11,421 - INFO - Initializing NES Roguelike
+2025-12-19 11:56:11,608 - INFO - Starting new game
+2025-12-19 11:56:11,612 - INFO - Hero spawned at (15, 5)
+2025-12-19 11:56:11,612 - INFO - Generated 1 treasure chests
+2025-12-19 11:56:11,613 - INFO - Game initialized successfully
+2025-12-19 11:56:11,613 - INFO - Starting game loop
+2025-12-19 11:56:14,084 - DEBUG - Hero moved to (15, 4)
+2025-12-19 11:56:14,372 - DEBUG - Hero moved to (14, 4)
+2025-12-19 11:56:14,565 - DEBUG - Hero moved to (13, 4)
+2025-12-19 11:56:14,808 - DEBUG - Hero moved to (14, 4)
+2025-12-19 11:56:14,953 - DEBUG - Hero moved to (15, 4)
+2025-12-19 11:56:15,099 - DEBUG - Hero moved to (16, 4)
+2025-12-19 11:56:15,612 - DEBUG - Hero moved to (17, 4)
+2025-12-19 11:56:15,983 - DEBUG - Hero moved to (17, 3)
+2025-12-19 11:56:16,192 - DEBUG - Hero moved to (18, 3)
+2025-12-19 11:56:16,336 - DEBUG - Hero moved to (19, 3)
+2025-12-19 11:56:16,415 - ERROR - Auto-save failed: 'dict' object has no attribute 'x'
+2025-12-19 11:56:16,592 - DEBUG - Hero moved to (19, 4)
+2025-12-19 11:56:16,785 - DEBUG - Hero moved to (20, 4)
+2025-12-19 11:56:16,931 - DEBUG - Hero moved to (21, 4)
+2025-12-19 11:56:17,091 - DEBUG - Hero moved to (21, 5)
+2025-12-19 11:56:17,267 - DEBUG - Hero moved to (21, 6)
+2025-12-19 11:56:17,379 - DEBUG - Hero moved to (21, 7)
+2025-12-19 11:56:17,508 - DEBUG - Hero moved to (21, 8)
+2025-12-19 11:56:17,622 - DEBUG - Hero moved to (21, 9)
+2025-12-19 11:56:17,735 - DEBUG - Hero moved to (21, 10)
+2025-12-19 11:56:17,866 - DEBUG - Hero moved to (21, 11)
+2025-12-19 11:56:17,995 - DEBUG - Hero moved to (21, 12)
+2025-12-19 11:56:18,124 - DEBUG - Hero moved to (21, 13)
+2025-12-19 11:56:18,316 - DEBUG - Hero moved to (22, 13)
+2025-12-19 11:56:18,462 - DEBUG - Hero moved to (22, 14)
+2025-12-19 11:56:18,638 - DEBUG - Hero moved to (22, 15)
+2025-12-19 11:56:18,991 - DEBUG - Hero moved to (21, 15)
+2025-12-19 11:56:19,151 - DEBUG - Hero moved to (20, 15)
+2025-12-19 11:56:19,506 - DEBUG - Hero moved to (20, 16)
+2025-12-19 11:56:19,746 - DEBUG - Hero moved to (19, 16)
+2025-12-19 11:56:19,907 - DEBUG - Hero moved to (18, 16)
+2025-12-19 11:56:20,050 - DEBUG - Hero moved to (17, 16)
+2025-12-19 11:56:20,291 - DEBUG - Hero moved to (17, 17)
+2025-12-19 11:56:20,949 - DEBUG - Hero moved to (17, 18)
+2025-12-19 11:56:21,127 - DEBUG - Hero moved to (16, 18)
+2025-12-19 11:56:21,241 - ERROR - Auto-save failed: 'dict' object has no attribute 'x'
+2025-12-19 11:56:21,464 - DEBUG - Hero moved to (15, 18)
+2025-12-19 11:56:21,674 - DEBUG - Hero moved to (15, 17)
+2025-12-19 11:56:21,964 - DEBUG - Hero moved to (15, 16)
+2025-12-19 11:56:22,093 - DEBUG - Hero moved to (15, 15)
+2025-12-19 11:56:22,370 - DEBUG - Hero moved to (14, 15)
+2025-12-19 11:56:22,498 - DEBUG - Hero moved to (13, 15)
+2025-12-19 11:56:22,642 - DEBUG - Hero moved to (12, 15)
+2025-12-19 11:56:22,769 - DEBUG - Hero moved to (11, 15)
+2025-12-19 11:56:22,882 - DEBUG - Hero moved to (10, 15)
+2025-12-19 11:56:23,010 - DEBUG - Hero moved to (9, 15)
+2025-12-19 11:56:23,155 - DEBUG - Hero moved to (8, 15)
+2025-12-19 11:56:23,330 - DEBUG - Hero moved to (8, 14)
+2025-12-19 11:56:23,636 - DEBUG - Hero moved to (8, 13)
+2025-12-19 11:56:23,973 - DEBUG - Hero moved to (7, 13)
+2025-12-19 11:56:24,151 - DEBUG - Hero moved to (6, 13)
+2025-12-19 11:56:24,311 - DEBUG - Hero moved to (6, 12)
+2025-12-19 11:56:24,618 - DEBUG - Hero moved to (5, 12)
+2025-12-19 11:56:25,069 - DEBUG - Hero moved to (6, 12)
+2025-12-19 11:56:25,473 - DEBUG - Hero moved to (5, 12)
+2025-12-19 11:56:25,827 - INFO - Treasure opened! Found: Iron Helmet
+2025-12-19 11:56:25,827 - INFO - Auto-equipped Iron Helmet to head
+2025-12-19 11:56:26,069 - ERROR - Auto-save failed: 'dict' object has no attribute 'x'
+2025-12-19 11:56:26,229 - DEBUG - Hero moved to (6, 12)
+2025-12-19 11:56:26,649 - DEBUG - Hero moved to (5, 12)
+2025-12-19 11:56:26,713 - DEBUG - No chest nearby to open
+2025-12-19 11:56:27,390 - DEBUG - Hero moved to (6, 12)
+2025-12-19 11:56:27,520 - DEBUG - No chest nearby to open
+2025-12-19 11:56:30,898 - ERROR - Auto-save failed: 'dict' object has no attribute 'x'
+2025-12-19 11:56:35,720 - ERROR - Auto-save failed: 'dict' object has no attribute 'x'
+2025-12-19 11:56:40,540 - ERROR - Auto-save failed: 'dict' object has no attribute 'x'
+2025-12-19 11:56:45,368 - ERROR - Auto-save failed: 'dict' object has no attribute 'x'

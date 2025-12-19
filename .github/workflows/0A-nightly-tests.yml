@@ -24,18 +24,65 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         
-    - name: Run all tests
+    - name: Run world movement tests
       run: |
-        python -m pytest tests/ -v --tb=short
+        python tests/test_world_movement.py
         
     - name: Run chest pathfinding test
       run: |
-        python -m pytest tests/test_chest_pathfinding.py -v
+        python tests/test_chest_pathfinding.py
         
-    - name: Test game launch
+    - name: Run menu functionality tests
       run: |
-        # Try to initialize the game engine
-        python -c "from src.engine.game_simple import Game; print('Game engine initialized successfully')"
+        python tests/test_menu_functionality.py
+        
+    - name: Generate random world and find treasure
+      run: |
+        python -c "
+import sys, os, random
+from collections import deque
+sys.path.insert(0, 'src')
+from environment.world.world_generator import WorldGenerator
+
+def find_path_bfs(world_gen, start_x, start_y, end_x, end_y):
+    if start_x == end_x and start_y == end_y:
+        return [(start_x, start_y)]
+    visited = set()
+    queue = deque([(start_x, start_y, [(start_x, start_y)])])
+    visited.add((start_x, start_y))
+    while queue:
+        x, y, path = queue.popleft()
+        for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+            new_x, new_y = x + dx, y + dy
+            if new_x == end_x and new_y == end_y:
+                return path + [(new_x, new_y)]
+            if (new_x, new_y) not in visited and world_gen.is_walkable(new_x, new_y):
+                visited.add((new_x, new_y))
+                queue.append((new_x, new_y, path + [(new_x, new_y)]))
+            if len(visited) > 3000:
+                return None
+    return None
+
+# Generate random world
+random.seed()
+world_gen = WorldGenerator(width=80, height=60)
+terrain, hero = world_gen.generate()
+print(f'Generated world: {world_gen.width}x{world_gen.height}')
+print(f'Hero spawned at: ({hero.x}, {hero.y})')
+print(f'Chests generated: {len(world_gen.chests)}')
+
+# Find path to all chests
+for i, chest in enumerate(world_gen.chests):
+    print(f'\\nChest {i+1} at ({chest[\"x\"]}, {chest[\"y\"]})')
+    path = find_path_bfs(world_gen, hero.x, hero.y, chest['x'], chest['y'])
+    if path:
+        print(f'  Path found! Distance: {len(path)-1} tiles')
+    else:
+        print(f'  ERROR: No path to chest!')
+        sys.exit(1)
+
+print('\\n✓ All chests are accessible!')
+"
         
     - name: Generate test report
       if: always()

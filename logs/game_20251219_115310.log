@@ -1,0 +1,47 @@
+2025-12-19 11:53:10,329 - INFO - Initializing NES Roguelike
+2025-12-19 11:53:10,504 - INFO - Starting new game
+2025-12-19 11:53:10,507 - INFO - Hero spawned at (13, 6)
+2025-12-19 11:53:10,508 - INFO - Generated 1 treasure chests
+2025-12-19 11:53:10,508 - INFO - Game initialized successfully
+2025-12-19 11:53:10,508 - INFO - Starting game loop
+2025-12-19 11:53:12,230 - DEBUG - Hero moved to (13, 7)
+2025-12-19 11:53:12,392 - DEBUG - Hero moved to (13, 8)
+2025-12-19 11:53:12,537 - DEBUG - Hero moved to (13, 9)
+2025-12-19 11:53:12,826 - DEBUG - Hero moved to (13, 8)
+2025-12-19 11:53:12,986 - DEBUG - Hero moved to (13, 7)
+2025-12-19 11:53:13,115 - DEBUG - Hero moved to (13, 6)
+2025-12-19 11:53:13,308 - DEBUG - Hero moved to (14, 6)
+2025-12-19 11:53:13,469 - DEBUG - Hero moved to (15, 6)
+2025-12-19 11:53:14,066 - DEBUG - Hero moved to (16, 6)
+2025-12-19 11:53:14,272 - DEBUG - Hero moved to (16, 7)
+2025-12-19 11:53:14,434 - DEBUG - Hero moved to (16, 8)
+2025-12-19 11:53:14,562 - DEBUG - Hero moved to (16, 9)
+2025-12-19 11:53:14,706 - DEBUG - Hero moved to (16, 10)
+2025-12-19 11:53:14,851 - DEBUG - Hero moved to (16, 11)
+2025-12-19 11:53:15,108 - DEBUG - Hero moved to (17, 11)
+2025-12-19 11:53:15,330 - ERROR - Auto-save failed: Object of type Equipment is not JSON serializable
+2025-12-19 11:53:15,660 - DEBUG - Hero moved to (16, 11)
+2025-12-19 11:53:15,885 - DEBUG - Hero moved to (17, 11)
+2025-12-19 11:53:16,590 - INFO - Treasure opened! Found: Iron Helmet
+2025-12-19 11:53:16,591 - INFO - Auto-equipped Iron Helmet to head
+2025-12-19 11:53:17,121 - DEBUG - Hero moved to (16, 11)
+2025-12-19 11:53:17,526 - DEBUG - Hero moved to (16, 10)
+2025-12-19 11:53:18,638 - ERROR - Game crashed: MenuSystem.handle_input() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 391, in run
+    running = self.handle_input()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 254, in handle_input
+    self.menu.handle_input(event, self)
+TypeError: MenuSystem.handle_input() takes 2 positional arguments but 3 were given
+2025-12-19 11:53:18,639 - INFO - Game loop ended
+2025-12-19 11:53:18,705 - ERROR - Fatal error: MenuSystem.handle_input() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 405, in main
+    game.run()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 391, in run
+    running = self.handle_input()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 254, in handle_input
+    self.menu.handle_input(event, self)
+TypeError: MenuSystem.handle_input() takes 2 positional arguments but 3 were given

@@ -1,0 +1,42 @@
+2025-12-19 12:00:22,079 - INFO - Initializing NES Roguelike
+2025-12-19 12:00:22,282 - INFO - Starting new game
+2025-12-19 12:00:22,286 - INFO - Hero spawned at (14, 7)
+2025-12-19 12:00:22,286 - INFO - Generated 1 treasure chests
+2025-12-19 12:00:22,286 - INFO - Game initialized successfully
+2025-12-19 12:00:22,286 - INFO - Starting game loop
+2025-12-19 12:00:24,826 - DEBUG - Hero moved to (15, 7)
+2025-12-19 12:00:25,147 - DEBUG - Hero moved to (16, 7)
+2025-12-19 12:00:25,339 - DEBUG - Hero moved to (17, 7)
+2025-12-19 12:00:25,483 - DEBUG - Hero moved to (18, 7)
+2025-12-19 12:00:26,028 - DEBUG - Hero moved to (17, 7)
+2025-12-19 12:00:26,286 - DEBUG - Hero moved to (18, 7)
+2025-12-19 12:00:27,101 - DEBUG - Auto-saved game
+2025-12-19 12:00:29,265 - DEBUG - Hero moved to (19, 7)
+2025-12-19 12:00:29,540 - DEBUG - Hero moved to (18, 7)
+2025-12-19 12:00:29,944 - INFO - Treasure opened! Found: Swift Boots
+2025-12-19 12:00:29,944 - INFO - Auto-equipped Swift Boots to feet
+2025-12-19 12:00:30,314 - DEBUG - Hero moved to (19, 7)
+2025-12-19 12:00:30,571 - DEBUG - No chest nearby to open
+2025-12-19 12:00:30,652 - DEBUG - Hero moved to (18, 7)
+2025-12-19 12:00:30,881 - DEBUG - Hero moved to (17, 7)
+2025-12-19 12:00:30,913 - DEBUG - No chest nearby to open
+2025-12-19 12:00:31,124 - DEBUG - No chest nearby to open
+2025-12-19 12:00:31,413 - DEBUG - Hero moved to (17, 6)
+2025-12-19 12:00:31,590 - DEBUG - Hero moved to (17, 5)
+2025-12-19 12:00:31,734 - DEBUG - Hero moved to (17, 4)
+2025-12-19 12:00:31,936 - DEBUG - Auto-saved game
+2025-12-19 12:00:32,023 - DEBUG - Hero moved to (17, 5)
+2025-12-19 12:00:32,185 - DEBUG - Hero moved to (17, 6)
+2025-12-19 12:00:32,313 - DEBUG - Hero moved to (17, 7)
+2025-12-19 12:00:32,441 - DEBUG - Hero moved to (17, 8)
+2025-12-19 12:00:32,585 - DEBUG - Hero moved to (17, 9)
+2025-12-19 12:00:32,714 - DEBUG - Hero moved to (17, 10)
+2025-12-19 12:00:32,843 - DEBUG - Hero moved to (17, 11)
+2025-12-19 12:00:32,972 - DEBUG - Hero moved to (17, 12)
+2025-12-19 12:00:36,771 - DEBUG - Auto-saved game
+2025-12-19 12:00:41,597 - DEBUG - Auto-saved game
+2025-12-19 12:00:46,438 - DEBUG - Auto-saved game
+2025-12-19 12:00:51,285 - DEBUG - Auto-saved game
+2025-12-19 12:00:56,115 - DEBUG - Auto-saved game
+2025-12-19 12:01:00,946 - DEBUG - Auto-saved game
+2025-12-19 12:01:05,796 - DEBUG - Auto-saved game

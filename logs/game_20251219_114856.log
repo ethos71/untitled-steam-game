@@ -1,0 +1,15 @@
+2025-12-19 11:48:56,107 - INFO - Initializing NES Roguelike
+2025-12-19 11:48:56,268 - INFO - Starting new game
+2025-12-19 11:48:56,271 - INFO - Hero spawned at (15, 9)
+2025-12-19 11:48:56,271 - INFO - Generated 1 treasure chests
+2025-12-19 11:48:56,271 - INFO - Game initialized successfully
+2025-12-19 11:48:56,271 - INFO - Starting game loop
+2025-12-19 11:49:01,102 - ERROR - Auto-save failed: Object of type Equipment is not JSON serializable
+2025-12-19 11:49:05,931 - ERROR - Auto-save failed: Object of type Equipment is not JSON serializable
+2025-12-19 11:49:10,755 - ERROR - Auto-save failed: Object of type Equipment is not JSON serializable
+2025-12-19 11:49:15,580 - ERROR - Auto-save failed: Object of type Equipment is not JSON serializable
+2025-12-19 11:49:20,400 - ERROR - Auto-save failed: Object of type Equipment is not JSON serializable
+2025-12-19 11:49:25,242 - ERROR - Auto-save failed: Object of type Equipment is not JSON serializable
+2025-12-19 11:49:30,064 - ERROR - Auto-save failed: Object of type Equipment is not JSON serializable
+2025-12-19 11:49:34,886 - ERROR - Auto-save failed: Object of type Equipment is not JSON serializable
+2025-12-19 11:49:39,706 - ERROR - Auto-save failed: Object of type Equipment is not JSON serializable

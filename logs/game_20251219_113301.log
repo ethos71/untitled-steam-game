@@ -1,0 +1,13 @@
+2025-12-19 11:33:01,652 - INFO - Initializing NES Roguelike
+2025-12-19 11:33:01,828 - ERROR - Fatal error: 'river'
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 332, in main
+    game = Game()
+           ^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 83, in __init__
+    self.sprites = self._create_sprites()
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 104, in _create_sprites
+    river.fill(NES_COLORS['river'])
+               ~~~~~~~~~~^^^^^^^^^
+KeyError: 'river'

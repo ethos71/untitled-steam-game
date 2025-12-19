@@ -1,0 +1,31 @@
+2025-12-19 11:57:24,663 - INFO - Initializing NES Roguelike
+2025-12-19 11:57:24,848 - INFO - Starting new game
+2025-12-19 11:57:24,851 - INFO - Hero spawned at (6, 15)
+2025-12-19 11:57:24,851 - INFO - Generated 1 treasure chests
+2025-12-19 11:57:24,851 - INFO - Game initialized successfully
+2025-12-19 11:57:24,851 - INFO - Starting game loop
+2025-12-19 11:57:27,411 - DEBUG - Hero moved to (5, 15)
+2025-12-19 11:57:27,604 - DEBUG - Hero moved to (5, 14)
+2025-12-19 11:57:28,361 - INFO - Treasure opened! Found: Iron Sword
+2025-12-19 11:57:28,361 - INFO - Auto-equipped Iron Sword to weapon
+2025-12-19 11:57:28,779 - DEBUG - Hero moved to (6, 14)
+2025-12-19 11:57:29,134 - DEBUG - No chest nearby to open
+2025-12-19 11:57:29,279 - DEBUG - Hero moved to (5, 14)
+2025-12-19 11:57:29,551 - DEBUG - Hero moved to (6, 14)
+2025-12-19 11:57:29,647 - DEBUG - No chest nearby to open
+2025-12-19 11:57:29,668 - DEBUG - Auto-saved game
+2025-12-19 11:57:29,777 - DEBUG - Hero moved to (6, 15)
+2025-12-19 11:57:30,020 - DEBUG - Hero moved to (7, 15)
+2025-12-19 11:57:30,196 - DEBUG - No chest nearby to open
+2025-12-19 11:57:30,388 - DEBUG - No chest nearby to open
+2025-12-19 11:57:30,581 - DEBUG - No chest nearby to open
+2025-12-19 11:57:30,838 - DEBUG - Hero moved to (8, 15)
+2025-12-19 11:57:31,015 - DEBUG - Hero moved to (9, 15)
+2025-12-19 11:57:31,160 - DEBUG - Hero moved to (10, 15)
+2025-12-19 11:57:31,321 - DEBUG - Hero moved to (11, 15)
+2025-12-19 11:57:34,509 - DEBUG - Auto-saved game
+2025-12-19 11:57:39,348 - DEBUG - Auto-saved game
+2025-12-19 11:57:44,177 - DEBUG - Auto-saved game
+2025-12-19 11:57:49,012 - DEBUG - Auto-saved game
+2025-12-19 11:57:50,549 - INFO - Game quit by user
+2025-12-19 11:57:50,564 - INFO - Game loop ended

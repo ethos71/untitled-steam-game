@@ -1,0 +1,48 @@
+2025-12-19 11:52:08,004 - INFO - Initializing NES Roguelike
+2025-12-19 11:52:08,162 - INFO - Starting new game
+2025-12-19 11:52:08,165 - INFO - Hero spawned at (15, 4)
+2025-12-19 11:52:08,165 - INFO - Generated 1 treasure chests
+2025-12-19 11:52:08,165 - INFO - Game initialized successfully
+2025-12-19 11:52:08,166 - INFO - Starting game loop
+2025-12-19 11:52:09,721 - DEBUG - Hero moved to (15, 3)
+2025-12-19 11:52:09,994 - DEBUG - Hero moved to (14, 3)
+2025-12-19 11:52:10,154 - DEBUG - Hero moved to (13, 3)
+2025-12-19 11:52:10,284 - DEBUG - Hero moved to (12, 3)
+2025-12-19 11:52:10,413 - DEBUG - Hero moved to (11, 3)
+2025-12-19 11:52:10,589 - DEBUG - Hero moved to (11, 4)
+2025-12-19 11:52:10,767 - DEBUG - Hero moved to (11, 5)
+2025-12-19 11:52:10,879 - DEBUG - Hero moved to (11, 6)
+2025-12-19 11:52:11,007 - DEBUG - Hero moved to (11, 7)
+2025-12-19 11:52:11,136 - DEBUG - Hero moved to (11, 8)
+2025-12-19 11:52:11,377 - DEBUG - Hero moved to (12, 8)
+2025-12-19 11:52:11,621 - DEBUG - Hero moved to (12, 9)
+2025-12-19 11:52:11,832 - DEBUG - Hero moved to (13, 9)
+2025-12-19 11:52:12,042 - DEBUG - Hero moved to (13, 10)
+2025-12-19 11:52:12,219 - DEBUG - Hero moved to (13, 11)
+2025-12-19 11:52:12,427 - DEBUG - Hero moved to (12, 11)
+2025-12-19 11:52:12,927 - DEBUG - Hero moved to (13, 11)
+2025-12-19 11:52:12,981 - ERROR - Auto-save failed: Object of type Equipment is not JSON serializable
+2025-12-19 11:52:13,509 - DEBUG - Hero moved to (12, 11)
+2025-12-19 11:52:14,106 - INFO - Treasure opened! Found: Ring of Strength
+2025-12-19 11:52:14,106 - INFO - Auto-equipped Ring of Strength to accessory_1
+2025-12-19 11:52:14,559 - DEBUG - Hero moved to (13, 11)
+2025-12-19 11:52:15,045 - DEBUG - No chest nearby to open
+2025-12-19 11:52:15,383 - DEBUG - Hero moved to (13, 10)
+2025-12-19 11:52:15,576 - DEBUG - Hero moved to (13, 9)
+2025-12-19 11:52:16,174 - ERROR - Game crashed: MenuSystem.render() missing 1 required positional argument: 'font'
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 390, in run
+    self.render()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 377, in render
+    self.menu.render(self.screen)
+TypeError: MenuSystem.render() missing 1 required positional argument: 'font'
+2025-12-19 11:52:16,175 - INFO - Game loop ended
+2025-12-19 11:52:16,211 - ERROR - Fatal error: MenuSystem.render() missing 1 required positional argument: 'font'
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 402, in main
+    game.run()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 390, in run
+    self.render()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 377, in render
+    self.menu.render(self.screen)
+TypeError: MenuSystem.render() missing 1 required positional argument: 'font'

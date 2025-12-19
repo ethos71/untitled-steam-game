@@ -1,0 +1,34 @@
+2025-12-19 11:43:32,703 - INFO - Initializing NES Roguelike
+2025-12-19 11:43:32,902 - INFO - Starting new game
+2025-12-19 11:43:32,906 - INFO - Hero spawned at (10, 13)
+2025-12-19 11:43:32,906 - INFO - Generated 1 treasure chests
+2025-12-19 11:43:32,906 - INFO - Game initialized successfully
+2025-12-19 11:43:32,906 - INFO - Starting game loop
+2025-12-19 11:43:37,716 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'
+2025-12-19 11:43:39,461 - DEBUG - Hero moved to (11, 13)
+2025-12-19 11:43:39,924 - DEBUG - Hero moved to (11, 14)
+2025-12-19 11:43:40,181 - DEBUG - Hero moved to (12, 14)
+2025-12-19 11:43:40,327 - DEBUG - Hero moved to (13, 14)
+2025-12-19 11:43:40,456 - DEBUG - Hero moved to (14, 14)
+2025-12-19 11:43:40,647 - DEBUG - Hero moved to (14, 13)
+2025-12-19 11:43:40,827 - DEBUG - Hero moved to (14, 12)
+2025-12-19 11:43:40,827 - INFO - Treasure opened! Found: Swift Boots
+2025-12-19 11:43:40,827 - INFO - Auto-equipped Swift Boots to feet
+2025-12-19 11:43:42,112 - DEBUG - Hero moved to (14, 11)
+2025-12-19 11:43:42,532 - DEBUG - Hero moved to (14, 12)
+2025-12-19 11:43:42,548 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'
+2025-12-19 11:43:46,849 - DEBUG - Hero moved to (14, 13)
+2025-12-19 11:43:47,073 - DEBUG - Hero moved to (14, 14)
+2025-12-19 11:43:47,363 - DEBUG - Hero moved to (14, 13)
+2025-12-19 11:43:47,379 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'
+2025-12-19 11:43:47,525 - DEBUG - Hero moved to (14, 12)
+2025-12-19 11:43:47,701 - DEBUG - Hero moved to (14, 11)
+2025-12-19 11:43:48,768 - DEBUG - Hero moved to (14, 12)
+2025-12-19 11:43:48,930 - DEBUG - Hero moved to (14, 13)
+2025-12-19 11:43:49,077 - DEBUG - Hero moved to (14, 14)
+2025-12-19 11:43:49,305 - DEBUG - Hero moved to (13, 14)
+2025-12-19 11:43:49,483 - DEBUG - Hero moved to (12, 14)
+2025-12-19 11:43:49,614 - DEBUG - Hero moved to (11, 14)
+2025-12-19 11:43:49,758 - DEBUG - Hero moved to (10, 14)
+2025-12-19 11:43:52,217 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'
+2025-12-19 11:43:57,054 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'

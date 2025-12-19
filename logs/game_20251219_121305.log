@@ -1,0 +1,52 @@
+2025-12-19 12:13:05,263 - INFO - === NES Roguelike Starting ===
+2025-12-19 12:13:05,452 - INFO - Game state initialized
+2025-12-19 12:13:05,453 - INFO - Created all sprites
+2025-12-19 12:13:05,453 - INFO - Renderer initialized
+2025-12-19 12:13:05,453 - INFO - Input handler initialized
+2025-12-19 12:13:05,453 - INFO - Menu system initialized
+2025-12-19 12:13:05,453 - INFO - Starting new game
+2025-12-19 12:13:05,465 - INFO - World set: 50x38
+2025-12-19 12:13:05,465 - DEBUG - Hero position: (24, 21)
+2025-12-19 12:13:05,465 - INFO - World generated: 50x38
+2025-12-19 12:13:05,465 - INFO - Hero at (24, 21)
+2025-12-19 12:13:05,465 - INFO - 1 chests placed
+2025-12-19 12:13:05,465 - INFO - Game initialized successfully
+2025-12-19 12:13:05,465 - INFO - Starting game loop
+2025-12-19 12:13:10,385 - DEBUG - Hero position: (25, 21)
+2025-12-19 12:13:10,577 - DEBUG - Hero position: (26, 21)
+2025-12-19 12:13:10,722 - DEBUG - Hero position: (27, 21)
+2025-12-19 12:13:10,930 - DEBUG - Hero position: (28, 21)
+2025-12-19 12:13:11,188 - DEBUG - Hero position: (28, 20)
+2025-12-19 12:13:11,416 - DEBUG - Hero position: (29, 20)
+2025-12-19 12:13:11,575 - DEBUG - Hero position: (30, 20)
+2025-12-19 12:13:11,721 - DEBUG - Hero position: (31, 20)
+2025-12-19 12:13:11,817 - DEBUG - Hero position: (32, 20)
+2025-12-19 12:13:11,945 - DEBUG - Hero position: (33, 20)
+2025-12-19 12:13:12,188 - DEBUG - Hero position: (34, 20)
+2025-12-19 12:13:12,316 - DEBUG - Hero position: (35, 20)
+2025-12-19 12:13:12,459 - DEBUG - Hero position: (36, 20)
+2025-12-19 12:13:12,717 - DEBUG - Hero position: (36, 19)
+2025-12-19 12:13:13,070 - DEBUG - Hero position: (36, 18)
+2025-12-19 12:13:13,664 - DEBUG - Hero position: (37, 18)
+2025-12-19 12:13:13,958 - DEBUG - Hero position: (36, 18)
+2025-12-19 12:13:14,537 - DEBUG - Hero position: (37, 18)
+2025-12-19 12:13:14,793 - DEBUG - Hero position: (36, 18)
+2025-12-19 12:13:15,150 - DEBUG - Hero position: (37, 18)
+2025-12-19 12:13:15,537 - DEBUG - Hero position: (38, 18)
+2025-12-19 12:13:15,859 - DEBUG - Hero position: (37, 18)
+2025-12-19 12:13:16,036 - DEBUG - Hero position: (36, 18)
+2025-12-19 12:13:16,695 - DEBUG - Hero position: (37, 18)
+2025-12-19 12:13:17,289 - DEBUG - Hero position: (36, 18)
+2025-12-19 12:13:17,467 - DEBUG - Hero position: (35, 18)
+2025-12-19 12:13:17,611 - DEBUG - Hero position: (34, 18)
+2025-12-19 12:13:17,822 - DEBUG - Hero position: (33, 18)
+2025-12-19 12:13:18,015 - DEBUG - Hero position: (34, 18)
+2025-12-19 12:13:18,175 - DEBUG - Hero position: (35, 18)
+2025-12-19 12:13:18,318 - DEBUG - Hero position: (36, 18)
+2025-12-19 12:13:19,255 - INFO - Opened chest: Swift Boots
+2025-12-19 12:13:19,256 - INFO - Opened chest with Swift Boots
+2025-12-19 12:13:19,704 - DEBUG - Hero position: (37, 18)
+2025-12-19 12:13:20,430 - DEBUG - Hero position: (36, 18)
+2025-12-19 12:13:21,282 - DEBUG - No chest nearby
+2025-12-19 12:13:21,846 - DEBUG - Hero position: (37, 18)
+2025-12-19 12:13:22,007 - DEBUG - Hero position: (38, 18)

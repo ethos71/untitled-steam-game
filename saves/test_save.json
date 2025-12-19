@@ -1,0 +1,25 @@
+{
+  "hero": {
+    "x": 27,
+    "y": 28,
+    "inventory": [],
+    "equipment": {
+      "head": null,
+      "body": null,
+      "hands": null,
+      "legs": null,
+      "feet": null,
+      "weapon": {
+        "name": "Test Sword",
+        "slot": "weapon",
+        "stats": {
+          "attack": 20
+        }
+      },
+      "shield": null,
+      "accessory_1": null,
+      "accessory_2": null
+    }
+  },
+  "world_seed": 456
+}

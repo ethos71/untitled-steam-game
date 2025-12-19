@@ -1,0 +1,41 @@
+2025-12-19 11:46:50,712 - INFO - Initializing NES Roguelike
+2025-12-19 11:46:50,900 - INFO - Starting new game
+2025-12-19 11:46:50,903 - INFO - Hero spawned at (10, 7)
+2025-12-19 11:46:50,903 - INFO - Generated 1 treasure chests
+2025-12-19 11:46:50,903 - INFO - Game initialized successfully
+2025-12-19 11:46:50,903 - INFO - Starting game loop
+2025-12-19 11:46:52,909 - DEBUG - Hero moved to (9, 7)
+2025-12-19 11:46:53,810 - DEBUG - Hero moved to (9, 6)
+2025-12-19 11:46:54,083 - DEBUG - Hero moved to (10, 6)
+2025-12-19 11:46:54,247 - DEBUG - Hero moved to (11, 6)
+2025-12-19 11:46:54,424 - DEBUG - Hero moved to (12, 6)
+2025-12-19 11:46:54,666 - DEBUG - Hero moved to (12, 5)
+2025-12-19 11:46:55,714 - ERROR - Auto-save failed: 'width'
+2025-12-19 11:46:56,583 - INFO - Treasure opened! Found: Ring of Strength
+2025-12-19 11:46:56,583 - INFO - Auto-equipped Ring of Strength to accessory_1
+2025-12-19 11:46:56,859 - DEBUG - Hero moved to (13, 5)
+2025-12-19 11:46:57,549 - DEBUG - Hero moved to (12, 5)
+2025-12-19 11:46:58,602 - DEBUG - Hero moved to (12, 6)
+2025-12-19 11:46:58,813 - DEBUG - Hero moved to (12, 7)
+2025-12-19 11:46:59,007 - DEBUG - Hero moved to (12, 8)
+2025-12-19 11:46:59,330 - DEBUG - Hero moved to (11, 8)
+2025-12-19 11:46:59,522 - DEBUG - Hero moved to (10, 8)
+2025-12-19 11:46:59,667 - DEBUG - Hero moved to (9, 8)
+2025-12-19 11:46:59,797 - DEBUG - Hero moved to (9, 9)
+2025-12-19 11:47:00,007 - DEBUG - Hero moved to (8, 9)
+2025-12-19 11:47:00,183 - DEBUG - Hero moved to (7, 9)
+2025-12-19 11:47:00,312 - DEBUG - Hero moved to (6, 9)
+2025-12-19 11:47:00,555 - ERROR - Auto-save failed: 'width'
+2025-12-19 11:47:00,619 - DEBUG - Hero moved to (6, 10)
+2025-12-19 11:47:00,812 - DEBUG - Hero moved to (5, 10)
+2025-12-19 11:47:00,972 - DEBUG - Hero moved to (4, 10)
+2025-12-19 11:47:01,101 - DEBUG - Hero moved to (3, 10)
+2025-12-19 11:47:01,231 - DEBUG - Hero moved to (2, 10)
+2025-12-19 11:47:01,360 - DEBUG - Hero moved to (1, 10)
+2025-12-19 11:47:01,506 - DEBUG - Hero moved to (0, 10)
+2025-12-19 11:47:01,714 - DEBUG - Hero moved to (0, 11)
+2025-12-19 11:47:01,970 - DEBUG - Hero moved to (1, 11)
+2025-12-19 11:47:02,113 - DEBUG - Hero moved to (2, 11)
+2025-12-19 11:47:02,259 - DEBUG - Hero moved to (3, 11)
+2025-12-19 11:47:02,373 - DEBUG - Hero moved to (4, 11)
+2025-12-19 11:47:02,565 - DEBUG - Hero moved to (4, 12)

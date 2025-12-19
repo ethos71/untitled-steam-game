@@ -1,0 +1,31 @@
+2025-12-19 11:30:14,131 - INFO - Initializing NES Roguelike
+2025-12-19 11:30:14,327 - INFO - Starting new game
+2025-12-19 11:30:14,330 - INFO - Hero spawned at (14, 13)
+2025-12-19 11:30:14,331 - INFO - Generated 1 treasure chests
+2025-12-19 11:30:14,331 - INFO - Game initialized successfully
+2025-12-19 11:30:14,331 - INFO - Starting game loop
+2025-12-19 11:30:17,324 - ERROR - Game crashed: 13
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 306, in run
+    running = self.handle_input()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 209, in handle_input
+    self.move_hero(1, 0)
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 224, in move_hero
+    tile = self.world[new_y][new_x]
+           ~~~~~~~~~~^^^^^^^
+KeyError: 13
+2025-12-19 11:30:17,327 - INFO - Game loop ended
+2025-12-19 11:30:17,382 - ERROR - Fatal error: 13
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 320, in main
+    game.run()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 306, in run
+    running = self.handle_input()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 209, in handle_input
+    self.move_hero(1, 0)
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 224, in move_hero
+    tile = self.world[new_y][new_x]
+           ~~~~~~~~~~^^^^^^^
+KeyError: 13

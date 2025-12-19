@@ -1,0 +1,47 @@
+2025-12-19 11:30:38,770 - INFO - Initializing NES Roguelike
+2025-12-19 11:30:38,962 - INFO - Starting new game
+2025-12-19 11:30:38,966 - INFO - Hero spawned at (9, 10)
+2025-12-19 11:30:38,966 - INFO - Generated 1 treasure chests
+2025-12-19 11:30:38,966 - INFO - Game initialized successfully
+2025-12-19 11:30:38,966 - INFO - Starting game loop
+2025-12-19 11:30:41,521 - DEBUG - Hero moved to (8, 10)
+2025-12-19 11:30:41,922 - DEBUG - Hero moved to (7, 10)
+2025-12-19 11:30:42,099 - DEBUG - Hero moved to (6, 10)
+2025-12-19 11:30:42,195 - DEBUG - Hero moved to (5, 10)
+2025-12-19 11:30:42,339 - DEBUG - Hero moved to (4, 10)
+2025-12-19 11:30:42,467 - DEBUG - Hero moved to (3, 10)
+2025-12-19 11:30:42,628 - DEBUG - Hero moved to (3, 9)
+2025-12-19 11:30:42,773 - DEBUG - Hero moved to (3, 8)
+2025-12-19 11:30:42,902 - DEBUG - Hero moved to (3, 7)
+2025-12-19 11:30:43,030 - DEBUG - Hero moved to (3, 6)
+2025-12-19 11:30:43,174 - DEBUG - Hero moved to (3, 5)
+2025-12-19 11:30:43,318 - DEBUG - Hero moved to (3, 4)
+2025-12-19 11:30:43,768 - ERROR - Game crashed: 'Game' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 310, in run
+    self.auto_save()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 259, in auto_save
+    self.save_system.autosave(self)
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/../environment/world/../../characters/hero/../../engine/save_system.py", line 68, in autosave
+    return self.save_game(game_state, "autosave")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/../environment/world/../../characters/hero/../../engine/save_system.py", line 24, in save_game
+    'x': game_state['hero'].x,
+         ~~~~~~~~~~^^^^^^^^
+TypeError: 'Game' object is not subscriptable
+2025-12-19 11:30:43,769 - INFO - Game loop ended
+2025-12-19 11:30:43,807 - ERROR - Fatal error: 'Game' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 323, in main
+    game.run()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 310, in run
+    self.auto_save()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 259, in auto_save
+    self.save_system.autosave(self)
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/../environment/world/../../characters/hero/../../engine/save_system.py", line 68, in autosave
+    return self.save_game(game_state, "autosave")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/../environment/world/../../characters/hero/../../engine/save_system.py", line 24, in save_game
+    'x': game_state['hero'].x,
+         ~~~~~~~~~~^^^^^^^^
+TypeError: 'Game' object is not subscriptable

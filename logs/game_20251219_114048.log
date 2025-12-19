@@ -1,0 +1,39 @@
+2025-12-19 11:40:48,737 - INFO - Initializing NES Roguelike
+2025-12-19 11:40:48,940 - INFO - Starting new game
+2025-12-19 11:40:48,943 - INFO - Hero spawned at (8, 13)
+2025-12-19 11:40:48,943 - INFO - Generated 1 treasure chests
+2025-12-19 11:40:48,943 - INFO - Game initialized successfully
+2025-12-19 11:40:48,943 - INFO - Starting game loop
+2025-12-19 11:40:49,811 - DEBUG - Hero moved to (8, 12)
+2025-12-19 11:40:50,100 - DEBUG - Hero moved to (8, 11)
+2025-12-19 11:40:50,245 - DEBUG - Hero moved to (8, 10)
+2025-12-19 11:40:50,375 - DEBUG - Hero moved to (8, 9)
+2025-12-19 11:40:50,728 - DEBUG - Hero moved to (7, 9)
+2025-12-19 11:40:50,905 - DEBUG - Hero moved to (7, 8)
+2025-12-19 11:40:51,081 - DEBUG - Hero moved to (7, 7)
+2025-12-19 11:40:51,372 - DEBUG - Hero moved to (8, 7)
+2025-12-19 11:40:51,516 - DEBUG - Hero moved to (9, 7)
+2025-12-19 11:40:51,645 - DEBUG - Hero moved to (10, 7)
+2025-12-19 11:40:51,774 - DEBUG - Hero moved to (11, 7)
+2025-12-19 11:40:51,902 - DEBUG - Hero moved to (12, 7)
+2025-12-19 11:40:52,047 - DEBUG - Hero moved to (13, 7)
+2025-12-19 11:40:52,272 - DEBUG - Hero moved to (14, 7)
+2025-12-19 11:40:52,756 - DEBUG - Hero moved to (13, 7)
+2025-12-19 11:40:52,917 - DEBUG - Hero moved to (13, 8)
+2025-12-19 11:40:53,095 - DEBUG - Hero moved to (13, 9)
+2025-12-19 11:40:53,224 - DEBUG - Hero moved to (13, 10)
+2025-12-19 11:40:53,352 - DEBUG - Hero moved to (13, 11)
+2025-12-19 11:40:53,483 - DEBUG - Hero moved to (13, 12)
+2025-12-19 11:40:53,631 - DEBUG - Hero moved to (13, 13)
+2025-12-19 11:40:53,760 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'
+2025-12-19 11:40:53,842 - DEBUG - Hero moved to (14, 13)
+2025-12-19 11:40:53,985 - DEBUG - Hero moved to (15, 13)
+2025-12-19 11:40:54,115 - DEBUG - Hero moved to (16, 13)
+2025-12-19 11:40:54,243 - DEBUG - Hero moved to (17, 13)
+2025-12-19 11:40:54,566 - DEBUG - Hero moved to (18, 13)
+2025-12-19 11:40:54,872 - DEBUG - Hero moved to (18, 12)
+2025-12-19 11:40:55,112 - DEBUG - Hero moved to (19, 12)
+2025-12-19 11:40:55,112 - INFO - Treasure opened! Found: Iron Helmet
+2025-12-19 11:40:55,112 - INFO - Auto-equipped Iron Helmet to head
+2025-12-19 11:40:55,985 - DEBUG - Hero moved to (18, 12)
+2025-12-19 11:40:58,599 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'

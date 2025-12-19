@@ -1,0 +1,25 @@
+2025-12-19 11:28:38,155 - INFO - Initializing NES Roguelike
+2025-12-19 11:28:38,314 - INFO - Starting new game
+2025-12-19 11:28:38,317 - INFO - Hero spawned at (8, 7)
+2025-12-19 11:28:38,317 - INFO - Generated 1 treasure chests
+2025-12-19 11:28:38,317 - INFO - Game initialized successfully
+2025-12-19 11:28:38,317 - INFO - Starting game loop
+2025-12-19 11:28:38,317 - ERROR - Game crashed: 0
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 302, in run
+    self.render()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 271, in render
+    tile = self.world[world_y][world_x]
+           ~~~~~~~~~~^^^^^^^^^
+KeyError: 0
+2025-12-19 11:28:38,318 - INFO - Game loop ended
+2025-12-19 11:28:38,349 - ERROR - Fatal error: 0
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 314, in main
+    game.run()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 302, in run
+    self.render()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 271, in render
+    tile = self.world[world_y][world_x]
+           ~~~~~~~~~~^^^^^^^^^
+KeyError: 0

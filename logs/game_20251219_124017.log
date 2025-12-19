@@ -1,0 +1,14 @@
+2025-12-19 12:40:17,332 - INFO - === NES Roguelike Starting ===
+2025-12-19 12:40:17,514 - INFO - Game state initialized
+2025-12-19 12:40:17,515 - INFO - Created all sprites
+2025-12-19 12:40:17,515 - INFO - Renderer initialized
+2025-12-19 12:40:17,515 - INFO - Input handler initialized
+2025-12-19 12:40:17,515 - INFO - Menu system initialized
+2025-12-19 12:40:17,515 - INFO - Starting new game
+2025-12-19 12:40:17,525 - INFO - World set: 50x38
+2025-12-19 12:40:17,526 - DEBUG - Hero position: (25, 19)
+2025-12-19 12:40:17,526 - INFO - World generated: 50x38
+2025-12-19 12:40:17,526 - INFO - Hero at (25, 19)
+2025-12-19 12:40:17,526 - INFO - 1 chests placed
+2025-12-19 12:40:17,526 - INFO - Game initialized successfully
+2025-12-19 12:40:17,526 - INFO - Starting game loop

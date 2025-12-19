@@ -1,0 +1,77 @@
+2025-12-19 11:35:45,904 - INFO - Initializing NES Roguelike
+2025-12-19 11:35:46,089 - INFO - Starting new game
+2025-12-19 11:35:46,092 - INFO - Hero spawned at (8, 5)
+2025-12-19 11:35:46,092 - INFO - Generated 1 treasure chests
+2025-12-19 11:35:46,092 - INFO - Game initialized successfully
+2025-12-19 11:35:46,092 - INFO - Starting game loop
+2025-12-19 11:35:48,315 - DEBUG - Hero moved to (7, 5)
+2025-12-19 11:35:48,606 - DEBUG - Hero moved to (6, 5)
+2025-12-19 11:35:48,719 - DEBUG - Hero moved to (5, 5)
+2025-12-19 11:35:48,847 - DEBUG - Hero moved to (4, 5)
+2025-12-19 11:35:49,299 - DEBUG - Hero moved to (5, 5)
+2025-12-19 11:35:49,444 - DEBUG - Hero moved to (6, 5)
+2025-12-19 11:35:49,621 - DEBUG - Hero moved to (6, 6)
+2025-12-19 11:35:49,781 - DEBUG - Hero moved to (6, 7)
+2025-12-19 11:35:49,893 - DEBUG - Hero moved to (6, 8)
+2025-12-19 11:35:50,037 - DEBUG - Hero moved to (6, 9)
+2025-12-19 11:35:50,182 - DEBUG - Hero moved to (6, 10)
+2025-12-19 11:35:50,392 - DEBUG - Hero moved to (7, 10)
+2025-12-19 11:35:50,520 - DEBUG - Hero moved to (8, 10)
+2025-12-19 11:35:50,908 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'
+2025-12-19 11:35:51,052 - DEBUG - Hero moved to (8, 11)
+2025-12-19 11:35:51,227 - DEBUG - Hero moved to (8, 12)
+2025-12-19 11:35:51,403 - DEBUG - Hero moved to (8, 13)
+2025-12-19 11:35:51,628 - DEBUG - Hero moved to (9, 13)
+2025-12-19 11:35:51,774 - DEBUG - Hero moved to (10, 13)
+2025-12-19 11:35:51,920 - DEBUG - Hero moved to (11, 13)
+2025-12-19 11:35:52,033 - DEBUG - Hero moved to (11, 14)
+2025-12-19 11:35:52,194 - DEBUG - Hero moved to (11, 15)
+2025-12-19 11:35:52,403 - DEBUG - Hero moved to (12, 15)
+2025-12-19 11:35:52,547 - DEBUG - Hero moved to (13, 15)
+2025-12-19 11:35:52,707 - DEBUG - Hero moved to (14, 15)
+2025-12-19 11:35:52,820 - DEBUG - Hero moved to (14, 14)
+2025-12-19 11:35:52,998 - DEBUG - Hero moved to (14, 13)
+2025-12-19 11:35:53,126 - DEBUG - Hero moved to (14, 12)
+2025-12-19 11:35:53,270 - DEBUG - Hero moved to (14, 11)
+2025-12-19 11:35:53,398 - DEBUG - Hero moved to (14, 10)
+2025-12-19 11:35:53,542 - DEBUG - Hero moved to (14, 9)
+2025-12-19 11:35:53,734 - DEBUG - Hero moved to (15, 9)
+2025-12-19 11:35:53,862 - DEBUG - Hero moved to (16, 9)
+2025-12-19 11:35:53,992 - DEBUG - Hero moved to (17, 9)
+2025-12-19 11:35:54,136 - DEBUG - Hero moved to (18, 9)
+2025-12-19 11:35:54,267 - DEBUG - Hero moved to (19, 9)
+2025-12-19 11:35:54,445 - DEBUG - Hero moved to (20, 9)
+2025-12-19 11:35:54,669 - DEBUG - Hero moved to (20, 10)
+2025-12-19 11:35:54,830 - DEBUG - Hero moved to (20, 11)
+2025-12-19 11:35:55,331 - DEBUG - Hero moved to (20, 12)
+2025-12-19 11:35:55,541 - DEBUG - Hero moved to (19, 12)
+2025-12-19 11:35:55,542 - INFO - Treasure opened! Found: Swift Boots
+2025-12-19 11:35:55,542 - ERROR - Game crashed: 'EquipmentManager' object has no attribute 'can_equip'
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 372, in run
+    running = self.handle_input()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 260, in handle_input
+    self.move_hero(-1, 0)
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 294, in move_hero
+    self.open_treasure(chest)
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 304, in open_treasure
+    if self.equipment.can_equip(item):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EquipmentManager' object has no attribute 'can_equip'. Did you mean: 'unequip'?
+2025-12-19 11:35:55,543 - INFO - Game loop ended
+2025-12-19 11:35:55,576 - ERROR - Fatal error: 'EquipmentManager' object has no attribute 'can_equip'
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 386, in main
+    game.run()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 372, in run
+    running = self.handle_input()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 260, in handle_input
+    self.move_hero(-1, 0)
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 294, in move_hero
+    self.open_treasure(chest)
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 304, in open_treasure
+    if self.equipment.can_equip(item):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EquipmentManager' object has no attribute 'can_equip'. Did you mean: 'unequip'?

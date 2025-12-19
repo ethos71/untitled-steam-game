@@ -1,0 +1,11 @@
+2025-12-19 12:04:39,093 - INFO - Initializing NES Roguelike
+2025-12-19 12:04:39,209 - INFO - Starting new game
+2025-12-19 12:04:39,212 - INFO - Hero spawned at (10, 10)
+2025-12-19 12:04:39,212 - INFO - Generated 1 treasure chests
+2025-12-19 12:04:39,212 - INFO - Game initialized successfully
+2025-12-19 12:04:39,212 - INFO - Starting new game
+2025-12-19 12:04:39,215 - INFO - Hero spawned at (8, 14)
+2025-12-19 12:04:39,215 - INFO - Generated 2 treasure chests
+2025-12-19 12:04:39,215 - INFO - Treasure opened! Found: Ring of Strength
+2025-12-19 12:04:39,215 - INFO - Added Ring of Strength to inventory
+2025-12-19 12:04:39,215 - INFO - Auto-equipped Ring of Strength to accessory_1

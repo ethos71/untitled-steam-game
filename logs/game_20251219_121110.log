@@ -1,0 +1,60 @@
+2025-12-19 12:11:10,948 - INFO - Initializing NES Roguelike
+2025-12-19 12:11:11,121 - INFO - Starting new game
+2025-12-19 12:11:11,124 - INFO - Hero spawned at (10, 14)
+2025-12-19 12:11:11,125 - INFO - Generated 1 treasure chests
+2025-12-19 12:11:11,125 - INFO - Game initialized successfully
+2025-12-19 12:11:11,125 - INFO - Starting game loop
+2025-12-19 12:11:12,923 - DEBUG - Hero moved to (11, 14)
+2025-12-19 12:11:13,115 - DEBUG - Hero moved to (12, 14)
+2025-12-19 12:11:13,470 - DEBUG - Hero moved to (13, 14)
+2025-12-19 12:11:13,632 - DEBUG - Hero moved to (14, 14)
+2025-12-19 12:11:13,777 - DEBUG - Hero moved to (15, 14)
+2025-12-19 12:11:14,116 - DEBUG - Hero moved to (14, 14)
+2025-12-19 12:11:14,469 - DEBUG - Hero moved to (13, 14)
+2025-12-19 12:11:14,614 - DEBUG - Hero moved to (12, 14)
+2025-12-19 12:11:14,856 - DEBUG - Hero moved to (13, 14)
+2025-12-19 12:11:15,016 - DEBUG - Hero moved to (14, 14)
+2025-12-19 12:11:15,129 - DEBUG - Hero moved to (15, 14)
+2025-12-19 12:11:15,594 - DEBUG - Hero moved to (14, 14)
+2025-12-19 12:11:15,788 - DEBUG - Hero moved to (13, 14)
+2025-12-19 12:11:15,934 - DEBUG - Auto-saved game
+2025-12-19 12:11:16,172 - DEBUG - Hero moved to (14, 14)
+2025-12-19 12:11:16,460 - DEBUG - Hero moved to (14, 15)
+2025-12-19 12:11:16,719 - DEBUG - Hero moved to (14, 14)
+2025-12-19 12:11:17,328 - INFO - Treasure opened! Found: Iron Sword
+2025-12-19 12:11:17,329 - INFO - Added Iron Sword to inventory
+2025-12-19 12:11:17,329 - INFO - Auto-equipped Iron Sword to Weapon 1
+2025-12-19 12:11:17,330 - DEBUG - Message shown: Found: Iron Sword!
+2025-12-19 12:11:18,215 - DEBUG - Hero moved to (13, 14)
+2025-12-19 12:11:18,616 - DEBUG - Hero moved to (14, 14)
+2025-12-19 12:11:19,017 - DEBUG - Hero moved to (15, 14)
+2025-12-19 12:11:19,341 - DEBUG - Hero moved to (14, 14)
+2025-12-19 12:11:19,518 - DEBUG - Hero moved to (13, 14)
+2025-12-19 12:11:19,662 - DEBUG - Hero moved to (12, 14)
+2025-12-19 12:11:19,838 - DEBUG - Hero moved to (11, 14)
+2025-12-19 12:11:20,048 - DEBUG - Hero moved to (12, 14)
+2025-12-19 12:11:20,192 - DEBUG - Hero moved to (13, 14)
+2025-12-19 12:11:20,336 - DEBUG - Hero moved to (14, 14)
+2025-12-19 12:11:20,758 - DEBUG - Auto-saved game
+2025-12-19 12:11:21,396 - DEBUG - Hero moved to (14, 15)
+2025-12-19 12:11:21,638 - DEBUG - Hero moved to (14, 14)
+2025-12-19 12:11:21,977 - DEBUG - Hero moved to (13, 14)
+2025-12-19 12:11:22,154 - DEBUG - Hero moved to (12, 14)
+2025-12-19 12:11:22,298 - DEBUG - Hero moved to (11, 14)
+2025-12-19 12:11:22,524 - DEBUG - Hero moved to (11, 13)
+2025-12-19 12:11:22,669 - DEBUG - Hero moved to (11, 12)
+2025-12-19 12:11:22,797 - DEBUG - Hero moved to (11, 11)
+2025-12-19 12:11:23,086 - DEBUG - Hero moved to (10, 11)
+2025-12-19 12:11:23,376 - DEBUG - Hero moved to (10, 10)
+2025-12-19 12:11:23,809 - DEBUG - Hero moved to (10, 11)
+2025-12-19 12:11:24,052 - DEBUG - Hero moved to (11, 11)
+2025-12-19 12:11:24,247 - DEBUG - Hero moved to (11, 12)
+2025-12-19 12:11:24,408 - DEBUG - Hero moved to (11, 13)
+2025-12-19 12:11:24,648 - DEBUG - Hero moved to (11, 14)
+2025-12-19 12:11:24,939 - DEBUG - Hero moved to (12, 14)
+2025-12-19 12:11:25,588 - DEBUG - Auto-saved game
+2025-12-19 12:11:30,414 - DEBUG - Auto-saved game
+2025-12-19 12:11:35,261 - DEBUG - Auto-saved game
+2025-12-19 12:11:40,080 - DEBUG - Auto-saved game
+2025-12-19 12:11:44,390 - INFO - Game quit by user
+2025-12-19 12:11:44,406 - INFO - Game loop ended

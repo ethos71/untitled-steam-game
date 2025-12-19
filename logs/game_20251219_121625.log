@@ -1,0 +1,19 @@
+2025-12-19 12:16:25,611 - INFO - Initializing NES Roguelike
+2025-12-19 12:16:25,799 - INFO - Collision system initialized
+2025-12-19 12:16:25,802 - INFO - Starting new game
+2025-12-19 12:16:25,807 - DEBUG - Collision system updated with 1 chests
+2025-12-19 12:16:25,807 - INFO - Hero spawned at (9, 12)
+2025-12-19 12:16:25,807 - INFO - Generated 1 treasure chests
+2025-12-19 12:16:25,807 - INFO - Game initialized successfully
+2025-12-19 12:16:25,807 - INFO - Starting game loop
+2025-12-19 12:16:30,612 - DEBUG - Auto-saved game
+2025-12-19 12:16:35,435 - DEBUG - Auto-saved game
+2025-12-19 12:16:40,278 - DEBUG - Auto-saved game
+2025-12-19 12:16:45,117 - DEBUG - Auto-saved game
+2025-12-19 12:16:49,961 - DEBUG - Auto-saved game
+2025-12-19 12:16:54,792 - DEBUG - Auto-saved game
+2025-12-19 12:16:59,611 - DEBUG - Auto-saved game
+2025-12-19 12:17:04,439 - DEBUG - Auto-saved game
+2025-12-19 12:17:09,265 - DEBUG - Auto-saved game
+2025-12-19 12:17:14,105 - DEBUG - Auto-saved game
+2025-12-19 12:17:18,942 - DEBUG - Auto-saved game

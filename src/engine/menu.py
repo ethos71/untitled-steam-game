@@ -150,20 +150,80 @@ class MenuSystem:
     
     def _item_fits_slot(self, item, slots):
         """Check if item fits in any of the given slots"""
-        if not hasattr(item, 'slot_type'):
+        # Get item's slot
+        item_slot = getattr(item, 'slot_type', getattr(item, 'slot', None))
+        if not item_slot:
             return False
-        return item.slot_type in slots
+        
+        # Get slot value
+        slot_value = item_slot.value if hasattr(item_slot, 'value') else str(item_slot)
+        
+        # Check if it matches any of the target slots
+        for target_slot in slots:
+            target_value = target_slot.value if hasattr(target_slot, 'value') else str(target_slot)
+            
+            # Direct match
+            if slot_value.lower() == target_value.lower():
+                return True
+            
+            # Handle aliases (body/chest, legs/feet, ring/accessory, etc.)
+            aliases = {
+                'body': ['chest'],
+                'chest': ['body'],
+                'legs': ['feet'],
+                'feet': ['legs'],
+                'ring': ['ring 1', 'ring 2'],
+                'weapon': ['weapon 1', 'weapon 2'],
+            }
+            
+            if slot_value.lower() in aliases:
+                if target_value.lower() in aliases[slot_value.lower()] or target_value.lower() == slot_value.lower():
+                    return True
+            
+            # Check reverse
+            if target_value.lower() in aliases:
+                if slot_value.lower() in aliases[target_value.lower()]:
+                    return True
+        
+        return False
     
     def add_to_inventory(self, item):
         """Add item to inventory"""
+        import logging
+        logger = logging.getLogger(__name__)
+        
         self.inventory.append(item)
+        logger.info(f"Added {item.name} to inventory")
         
         # Auto-equip if slot is empty
-        if hasattr(item, 'slot_type'):
-            slot = item.slot_type
-            if self.equipment_slots.get(slot) is None:
-                self.equipment_slots[slot] = item
-                print(f"Auto-equipped {item.name} to {slot.value}")
+        # Handle both 'slot' and 'slot_type' attributes
+        item_slot = getattr(item, 'slot_type', getattr(item, 'slot', None))
+        
+        if item_slot:
+            # Map equipment slots to menu slots
+            slot_mapping = {
+                'head': EquipSlot.HEAD,
+                'body': EquipSlot.CHEST,
+                'chest': EquipSlot.CHEST,
+                'feet': EquipSlot.FEET,
+                'legs': EquipSlot.FEET,
+                'weapon': EquipSlot.WEAPON_1,
+                'ring': EquipSlot.RING_1,
+            }
+            
+            # Get the slot value
+            slot_value = item_slot.value if hasattr(item_slot, 'value') else str(item_slot)
+            menu_slot = slot_mapping.get(slot_value.lower(), item_slot)
+            
+            # Auto-equip to first empty slot
+            if menu_slot == EquipSlot.RING_1 and self.equipment_slots.get(EquipSlot.RING_1) is not None:
+                menu_slot = EquipSlot.RING_2
+            elif menu_slot == EquipSlot.WEAPON_1 and self.equipment_slots.get(EquipSlot.WEAPON_1) is not None:
+                menu_slot = EquipSlot.WEAPON_2
+            
+            if self.equipment_slots.get(menu_slot) is None:
+                self.equipment_slots[menu_slot] = item
+                logger.info(f"Auto-equipped {item.name} to {menu_slot.value}")
         
         self._build_menus()
     
@@ -180,6 +240,13 @@ class MenuSystem:
     def is_open(self) -> bool:
         """Check if menu is open"""
         return self.state != MenuState.CLOSED
+    
+    def toggle(self):
+        """Toggle menu open/closed"""
+        if self.is_open():
+            self.close()
+        else:
+            self.open()
     
     def _open_main(self):
         """Open main menu"""

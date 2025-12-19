@@ -70,6 +70,7 @@ class EquipmentManager:
         self.equipped: Dict[EquipmentSlot, Optional[Equipment]] = {
             slot: None for slot in EquipmentSlot
         }
+        self.inventory = []  # Unequipped items
     
     def equip(self, equipment: Equipment, auto_equip: bool = False) -> Optional[Equipment]:
         """
@@ -77,6 +78,22 @@ class EquipmentManager:
         If auto_equip is True, only equips if slot is empty
         """
         slot = equipment.slot
+        
+        # Handle different slot types (ItemSlot vs EquipmentSlot)
+        if hasattr(slot, 'value'):
+            # Find matching EquipmentSlot by value
+            matching_slot = None
+            for eq_slot in EquipmentSlot:
+                if eq_slot.value == slot.value:
+                    matching_slot = eq_slot
+                    break
+            if matching_slot is None:
+                # Handle ring->accessory mapping
+                if slot.value == 'ring':
+                    matching_slot = EquipmentSlot.ACCESSORY_1 if self.is_slot_empty(EquipmentSlot.ACCESSORY_1) else EquipmentSlot.ACCESSORY_2
+                else:
+                    raise ValueError(f"Unknown slot: {slot.value}")
+            slot = matching_slot
         
         # If auto_equip mode and slot is not empty, don't equip
         if auto_equip and not self.is_slot_empty(slot):
@@ -96,7 +113,19 @@ class EquipmentManager:
     
     def get_equipped(self, slot: EquipmentSlot) -> Optional[Equipment]:
         """Get currently equipped item in a slot"""
-        return self.equipped[slot]
+        # Handle different slot types (ItemSlot vs EquipmentSlot)
+        if hasattr(slot, 'value'):
+            # Find matching EquipmentSlot by value
+            for eq_slot in EquipmentSlot:
+                if eq_slot.value == slot.value:
+                    return self.equipped[eq_slot]
+            # Handle ring->accessory mapping
+            if slot.value == 'ring':
+                # Return first equipped ring/accessory
+                acc1 = self.equipped.get(EquipmentSlot.ACCESSORY_1)
+                acc2 = self.equipped.get(EquipmentSlot.ACCESSORY_2)
+                return acc1 if acc1 else acc2
+        return self.equipped.get(slot)
     
     def get_total_stats(self) -> EquipmentStats:
         """Calculate total stats from all equipped items"""
@@ -113,6 +142,14 @@ class EquipmentManager:
     def is_slot_empty(self, slot: EquipmentSlot) -> bool:
         """Check if a slot is empty"""
         return self.equipped[slot] is None
+    
+    def add_to_inventory(self, equipment: Equipment):
+        """Add an item to the inventory"""
+        self.inventory.append(equipment)
+    
+    def get_inventory(self):
+        """Get all inventory items"""
+        return self.inventory.copy()
 
 
 # Example equipment items

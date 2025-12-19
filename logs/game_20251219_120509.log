@@ -1,0 +1,11 @@
+2025-12-19 12:05:09,511 - INFO - Initializing NES Roguelike
+2025-12-19 12:05:09,641 - INFO - Starting new game
+2025-12-19 12:05:09,644 - INFO - Hero spawned at (11, 9)
+2025-12-19 12:05:09,644 - INFO - Generated 1 treasure chests
+2025-12-19 12:05:09,644 - INFO - Game initialized successfully
+2025-12-19 12:05:09,644 - INFO - Starting new game
+2025-12-19 12:05:09,647 - INFO - Hero spawned at (14, 6)
+2025-12-19 12:05:09,647 - INFO - Generated 2 treasure chests
+2025-12-19 12:05:09,647 - INFO - Treasure opened! Found: Leather Armor
+2025-12-19 12:05:09,647 - INFO - Added Leather Armor to inventory
+2025-12-19 12:05:09,647 - INFO - Auto-equipped Leather Armor to Chest

@@ -18,28 +18,48 @@ class SaveSystem:
         """Save current game state."""
         save_path = self.save_dir / f"{slot_name}.json"
         
+        # Get hero equipment if available
+        equipment_data = {}
+        hero = game_state.get('hero')
+        if hero and hasattr(hero, 'equipment'):
+            if hasattr(hero.equipment, 'equipped'):
+                equipment_data = {
+                    slot.value: self._serialize_item(item) if item else None
+                    for slot, item in hero.equipment.equipped.items()
+                }
+        
+        # Get hero inventory if available
+        inventory_data = []
+        if hero and hasattr(hero, 'inventory'):
+            inventory_data = [self._serialize_item(item) for item in hero.inventory]
+        
         data = {
             'timestamp': datetime.now().isoformat(),
             'hero': {
-                'x': game_state['hero'].x,
-                'y': game_state['hero'].y,
-                'hp': game_state['hero'].hp,
-                'max_hp': game_state['hero'].max_hp,
-                'inventory': [self._serialize_item(item) for item in game_state['hero'].inventory],
-                'equipment': {
-                    slot: self._serialize_item(item) if item else None
-                    for slot, item in game_state['hero'].equipment_manager.equipment.items()
-                }
+                'x': getattr(hero, 'x', 0),
+                'y': getattr(hero, 'y', 0),
+                'hp': getattr(hero, 'hp', 100),
+                'max_hp': getattr(hero, 'max_hp', 100),
+                'inventory': inventory_data,
+                'equipment': equipment_data
             },
             'terrain': {
-                f"{x},{y}": {'char': tile.char, 'walkable': tile.walkable}
-                for (x, y), tile in game_state['terrain'].items()
+                f"{x},{y}": {'char': getattr(tile, 'char', '?'), 'walkable': getattr(tile, 'is_walkable', True)}
+                for (x, y), tile in game_state.get('terrain', {}).items()
             },
-            'chests': game_state['chests'],
+            'chests': [
+                {
+                    'x': chest.get('x') if isinstance(chest, dict) else getattr(chest, 'x', 0),
+                    'y': chest.get('y') if isinstance(chest, dict) else getattr(chest, 'y', 0),
+                    'opened': chest.get('opened', False) if isinstance(chest, dict) else getattr(chest, 'opened', False),
+                    'item': self._serialize_item(chest.get('item') if isinstance(chest, dict) else getattr(chest, 'item', None)) if (chest.get('item') if isinstance(chest, dict) else getattr(chest, 'item', None)) else None
+                }
+                for chest in (game_state.get('chests', []) if game_state.get('chests') else [])
+            ],
             'world_seed': game_state.get('seed', None),
             'map_size': {
-                'width': game_state['width'],
-                'height': game_state['height']
+                'width': game_state.get('width', 20),
+                'height': game_state.get('height', 15)
             }
         }
         
@@ -98,8 +118,20 @@ class SaveSystem:
     
     def _serialize_item(self, item):
         """Convert item to serializable format."""
+        if not item:
+            return None
         return {
-            'name': item.name,
-            'slot': item.slot,
-            'stats': item.stats
+            'name': getattr(item, 'name', 'Unknown'),
+            'slot': getattr(item.slot, 'value', str(item.slot)) if hasattr(item, 'slot') else 'unknown',
+            'stats': {
+                'attack': getattr(item.stats, 'attack', 0),
+                'defense': getattr(item.stats, 'defense', 0),
+                'magic_attack': getattr(item.stats, 'magic_attack', 0),
+                'magic_defense': getattr(item.stats, 'magic_defense', 0),
+                'speed': getattr(item.stats, 'speed', 0),
+                'hp_bonus': getattr(item.stats, 'hp_bonus', 0),
+                'mp_bonus': getattr(item.stats, 'mp_bonus', 0),
+                'evasion': getattr(item.stats, 'evasion', 0),
+                'accuracy': getattr(item.stats, 'accuracy', 0),
+            } if hasattr(item, 'stats') else {}
         }

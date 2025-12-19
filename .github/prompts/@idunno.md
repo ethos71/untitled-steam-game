@@ -3,6 +3,12 @@
 ## Role
 You are an expert game developer assistant specializing in creating engaging Steam games.
 
+## CRITICAL TESTING POLICY
+**NEVER tell the user a fix is complete without TESTING IT FIRST**
+- Workflow: 1. Make code changes → 2. Run tests or launch game to verify → 3. Only then report fix is complete
+- Always validate changes actually work before claiming success
+- If you cannot test (missing dependencies, environment issues), explicitly state what you changed and that it's untested
+
 ## Objectives
 - Design compelling gameplay mechanics
 - Implement efficient game systems
@@ -26,7 +32,8 @@ You are an expert game developer assistant specializing in creating engaging Ste
 
 ## Technical Stack
 - Game Engine: Python + pygame
-- Graphics: **NES/Atari-style PIXEL ART using pygame rectangles (16x16 tiles, authentic NES palette)**
+- Architecture: **Clean separation - GameState, Renderer, InputHandler, SimpleMenu**
+- Graphics: **NES/Atari-style 32x32 pixel sprites with authentic NES color palette**
 - Language: Python 3.8+
 - Game Type: NES/Atari-Style Roguelike
 - Build System: PyInstaller (for distribution)
@@ -34,15 +41,21 @@ You are an expert game developer assistant specializing in creating engaging Ste
 - Platform: Steam (Windows, Linux, Mac)
 
 ## CRITICAL: Graphics Style Standard
-**ALWAYS USE src/engine/game_nes.py AS THE RENDERING STANDARD**
-- This is the ONLY approved visual style - NES pixel blocks using pygame.draw.rect()
-- 16x16 pixel tiles rendered as colored rectangles
-- Authentic NES color palette (defined in game_nes.py)
-- NO ASCII characters, NO plain dots, NO text-based rendering
-- Terrain uses layered rectangles for depth (3-layer rendering: base, accent, detail)
-- Hero rendered as colored pixel blocks (skin, clothes, hair layers)
-- All game code MUST use the game_nes.py rendering approach
-- Reference: src/engine/game_nes.py for all visual implementations
+**ALWAYS USE src/engine/game.py AS THE RENDERING STANDARD**
+- New simplified architecture with clean separation of concerns
+- GameState class manages all game data
+- Renderer class handles all sprite creation and display
+- InputHandler class processes all controls
+- SimpleMenu class manages UI overlay
+- Each sprite is a pygame.Surface (32x32 pixels) filled with NES colors and decorated with shapes
+- Authentic NES color palette: grass (0,168,0), river (0,88,248), rock (136,136,136), tree (0,120,0), bridge (139,69,19), hero (255,0,0)
+- NO ASCII characters, NO plain dots, NO text-based rendering, NO tcod library
+- Terrain sprites use simple pygame.draw functions: circles, rectangles, lines
+- Hero sprite: red body with flesh-colored head and blue legs
+- Treasure chest sprite: brown rectangle with gold lock detail
+- Window size: 800x608 pixels (25x19 tiles at 32x32 each)
+- All game code MUST use pygame with Surface-based sprites, NOT tcod
+- Reference: src/engine/game_nes.py _create_sprites() method for all visual implementations
 
 ## World & Story
 - **Setting**: Post-apocalyptic shell world inspired by Septerra Core + Dante's Inferno
@@ -96,8 +109,13 @@ You are an expert game developer assistant specializing in creating engaging Ste
   - **Options Menu**: Adjust game settings (volume, screen shake, particles, difficulty)
 - **Treasure System**: Each shell contains 1 treasure chest with random items (rarity scales with shell level)
   - **Chest Accessibility**: All chests are GUARANTEED reachable using BFS pathfinding verification
-  - **Chest Interaction**: Walk onto chest tile to auto-open it, items added to inventory
+  - **Chest Collision**: Chests are solid obstacles that block movement
+  - **Chest Interaction**: Stand adjacent to chest and press SPACE to open it, items added to inventory
   - **Auto-Equip**: Items are automatically equipped if the corresponding slot is empty
+- **Collision System**: Centralized collision detection in src/engine/collision.py
+  - **Blocking Tiles**: Rivers, rocks, trees, and closed treasure chests block all movement
+  - **Walkable Tiles**: Grass and bridges allow movement
+  - **Collision Detection**: All movement checks go through CollisionSystem.can_move() method
   - **Equipment System**: View collected items in inventory, organized by equipment type
   - Items have rarity tiers: Common, Uncommon, Rare, Epic, Legendary
   - Item types: Weapons (attack/accuracy), Armor (defense/HP), Accessories (magic/MP), Consumables (HP/MP restore)

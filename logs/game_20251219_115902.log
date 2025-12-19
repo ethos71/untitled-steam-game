@@ -1,0 +1,28 @@
+2025-12-19 11:59:02,436 - INFO - Initializing NES Roguelike
+2025-12-19 11:59:02,626 - INFO - Starting new game
+2025-12-19 11:59:02,630 - INFO - Hero spawned at (9, 6)
+2025-12-19 11:59:02,631 - INFO - Generated 1 treasure chests
+2025-12-19 11:59:02,631 - INFO - Game initialized successfully
+2025-12-19 11:59:02,631 - INFO - Starting game loop
+2025-12-19 11:59:03,847 - DEBUG - Hero moved to (9, 7)
+2025-12-19 11:59:04,008 - DEBUG - Hero moved to (9, 8)
+2025-12-19 11:59:04,136 - DEBUG - Hero moved to (9, 9)
+2025-12-19 11:59:04,248 - DEBUG - Hero moved to (9, 10)
+2025-12-19 11:59:04,392 - DEBUG - Hero moved to (9, 11)
+2025-12-19 11:59:04,536 - DEBUG - Hero moved to (9, 12)
+2025-12-19 11:59:04,666 - DEBUG - Hero moved to (9, 13)
+2025-12-19 11:59:04,810 - DEBUG - Hero moved to (9, 14)
+2025-12-19 11:59:05,002 - DEBUG - Hero moved to (8, 14)
+2025-12-19 11:59:05,147 - DEBUG - Hero moved to (7, 14)
+2025-12-19 11:59:05,291 - DEBUG - Hero moved to (6, 14)
+2025-12-19 11:59:05,420 - DEBUG - Hero moved to (5, 14)
+2025-12-19 11:59:05,998 - DEBUG - Hero moved to (6, 14)
+2025-12-19 11:59:06,305 - DEBUG - Hero moved to (5, 14)
+2025-12-19 11:59:06,885 - INFO - Treasure opened! Found: Iron Helmet
+2025-12-19 11:59:06,885 - INFO - Auto-equipped Iron Helmet to head
+2025-12-19 11:59:07,223 - DEBUG - Hero moved to (6, 14)
+2025-12-19 11:59:07,437 - DEBUG - Auto-saved game
+2025-12-19 11:59:07,707 - DEBUG - Hero moved to (5, 14)
+2025-12-19 11:59:07,836 - DEBUG - No chest nearby to open
+2025-12-19 11:59:08,013 - DEBUG - Hero moved to (6, 14)
+2025-12-19 11:59:12,266 - DEBUG - Auto-saved game

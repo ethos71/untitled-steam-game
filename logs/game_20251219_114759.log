@@ -1,0 +1,60 @@
+2025-12-19 11:47:59,619 - INFO - Initializing NES Roguelike
+2025-12-19 11:47:59,829 - INFO - Starting new game
+2025-12-19 11:47:59,834 - INFO - Hero spawned at (8, 5)
+2025-12-19 11:47:59,834 - INFO - Generated 1 treasure chests
+2025-12-19 11:47:59,834 - INFO - Game initialized successfully
+2025-12-19 11:47:59,834 - INFO - Starting game loop
+2025-12-19 11:48:01,645 - DEBUG - Hero moved to (8, 4)
+2025-12-19 11:48:01,806 - DEBUG - Hero moved to (8, 3)
+2025-12-19 11:48:01,934 - DEBUG - Hero moved to (8, 2)
+2025-12-19 11:48:02,063 - DEBUG - Hero moved to (8, 1)
+2025-12-19 11:48:02,191 - DEBUG - Hero moved to (8, 0)
+2025-12-19 11:48:02,529 - DEBUG - Hero moved to (9, 0)
+2025-12-19 11:48:02,690 - DEBUG - Hero moved to (10, 0)
+2025-12-19 11:48:02,803 - DEBUG - Hero moved to (11, 0)
+2025-12-19 11:48:02,948 - DEBUG - Hero moved to (12, 0)
+2025-12-19 11:48:03,061 - DEBUG - Hero moved to (13, 0)
+2025-12-19 11:48:03,221 - DEBUG - Hero moved to (14, 0)
+2025-12-19 11:48:03,367 - DEBUG - Hero moved to (15, 0)
+2025-12-19 11:48:03,544 - DEBUG - Hero moved to (16, 0)
+2025-12-19 11:48:03,737 - DEBUG - Hero moved to (16, 1)
+2025-12-19 11:48:03,916 - DEBUG - Hero moved to (16, 2)
+2025-12-19 11:48:04,044 - DEBUG - Hero moved to (16, 3)
+2025-12-19 11:48:04,173 - DEBUG - Hero moved to (16, 4)
+2025-12-19 11:48:04,317 - DEBUG - Hero moved to (16, 5)
+2025-12-19 11:48:04,446 - DEBUG - Hero moved to (16, 6)
+2025-12-19 11:48:04,573 - DEBUG - Hero moved to (16, 7)
+2025-12-19 11:48:04,640 - ERROR - Auto-save failed: 'width'
+2025-12-19 11:48:04,719 - DEBUG - Hero moved to (16, 8)
+2025-12-19 11:48:04,929 - DEBUG - Hero moved to (15, 8)
+2025-12-19 11:48:05,091 - DEBUG - Hero moved to (14, 8)
+2025-12-19 11:48:05,284 - DEBUG - Hero moved to (14, 9)
+2025-12-19 11:48:05,462 - DEBUG - Hero moved to (14, 10)
+2025-12-19 11:48:05,864 - DEBUG - Hero moved to (14, 11)
+2025-12-19 11:48:06,299 - DEBUG - Hero moved to (14, 10)
+2025-12-19 11:48:07,390 - INFO - Treasure opened! Found: Iron Helmet
+2025-12-19 11:48:07,391 - INFO - Auto-equipped Iron Helmet to head
+2025-12-19 11:48:08,164 - DEBUG - Hero moved to (14, 9)
+2025-12-19 11:48:09,179 - DEBUG - No chest nearby to open
+2025-12-19 11:48:09,470 - ERROR - Auto-save failed: 'width'
+2025-12-19 11:48:10,083 - ERROR - Game crashed: 'MenuSystem' object has no attribute 'toggle'
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 386, in run
+    running = self.handle_input()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 254, in handle_input
+    self.menu.toggle()
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'MenuSystem' object has no attribute 'toggle'
+2025-12-19 11:48:10,085 - INFO - Game loop ended
+2025-12-19 11:48:10,121 - ERROR - Fatal error: 'MenuSystem' object has no attribute 'toggle'
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 400, in main
+    game.run()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 386, in run
+    running = self.handle_input()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 254, in handle_input
+    self.menu.toggle()
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'MenuSystem' object has no attribute 'toggle'

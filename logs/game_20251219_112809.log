@@ -1,0 +1,13 @@
+2025-12-19 11:28:09,626 - INFO - Initializing NES Roguelike
+2025-12-19 11:28:09,816 - INFO - Starting new game
+2025-12-19 11:28:09,818 - ERROR - Fatal error: 'WorldGenerator' object has no attribute 'find_valid_spawn'
+Traceback (most recent call last):
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 320, in main
+    game = Game()
+           ^^^^^^
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 85, in __init__
+    self.new_game()
+  File "/home/dominick/workspace/untitled-steam-game/src/engine/game_nes.py", line 173, in new_game
+    spawn_x, spawn_y = self.world_generator.find_valid_spawn()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WorldGenerator' object has no attribute 'find_valid_spawn'

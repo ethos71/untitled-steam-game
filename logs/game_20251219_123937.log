@@ -1,0 +1,11 @@
+2025-12-19 12:39:37,457 - INFO - Initializing NES Roguelike
+2025-12-19 12:39:37,633 - INFO - Collision system initialized
+2025-12-19 12:39:37,635 - INFO - Starting new game
+2025-12-19 12:39:37,639 - DEBUG - Collision system updated with 1 chests
+2025-12-19 12:39:37,639 - INFO - Hero spawned at (10, 3)
+2025-12-19 12:39:37,639 - INFO - Generated 1 treasure chests
+2025-12-19 12:39:37,639 - INFO - Game initialized successfully
+2025-12-19 12:39:37,639 - INFO - Starting game loop
+2025-12-19 12:39:39,985 - DEBUG - Hero moved to (10, 2)
+2025-12-19 12:39:40,211 - DEBUG - Hero moved to (10, 1)
+2025-12-19 12:39:40,389 - DEBUG - Hero moved to (10, 0)

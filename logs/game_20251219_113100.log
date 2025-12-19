@@ -1,0 +1,11 @@
+2025-12-19 11:31:00,927 - INFO - Initializing NES Roguelike
+2025-12-19 11:31:01,087 - INFO - Starting new game
+2025-12-19 11:31:01,090 - INFO - Hero spawned at (13, 11)
+2025-12-19 11:31:01,090 - INFO - Generated 1 treasure chests
+2025-12-19 11:31:01,090 - INFO - Game initialized successfully
+2025-12-19 11:31:01,090 - INFO - Starting game loop
+2025-12-19 11:31:05,901 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'
+2025-12-19 11:31:10,735 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'
+2025-12-19 11:31:15,582 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'
+2025-12-19 11:31:20,414 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'
+2025-12-19 11:31:25,249 - ERROR - Auto-save failed: 'Hero' object has no attribute 'equipment_manager'
