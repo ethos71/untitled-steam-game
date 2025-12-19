@@ -44,7 +44,7 @@
     },
     "code_structure": {
       "characters": "src/characters",
-      "hero": "src/characters/hero - Player character and 7-slot equipment system (head, chest, feet, 2 rings, 2 weapons)",
+      "hero": "src/characters/hero - Player character and 9-slot equipment system (head, body, hands, legs, feet, weapon, shield, accessory_1, accessory_2)",
       "enemy": "src/characters/enemy",
       "boss": "src/characters/boss",
       "villain": "src/characters/villain",
