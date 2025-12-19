@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-12-19T12:17:18.939626",
+  "timestamp": "2025-12-19T13:03:20.336161",
   "hero": {
-    "x": 9,
-    "y": 12,
+    "x": 23,
+    "y": 8,
     "hp": 100,
     "max_hp": 100,
     "inventory": [],
@@ -20,15 +20,15 @@
   },
   "terrain": {
     "0,0": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "1,0": {
-      "char": "'",
+      "char": "*",
       "walkable": true
     },
     "2,0": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "3,0": {
@@ -36,19 +36,19 @@
       "walkable": true
     },
     "4,0": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "5,0": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "6,0": {
-      "char": ",",
+      "char": ".",
       "walkable": true
     },
     "7,0": {
-      "char": ".",
+      "char": "\u25d8",
       "walkable": true
     },
     "8,0": {
@@ -56,7 +56,7 @@
       "walkable": true
     },
     "9,0": {
-      "char": ",",
+      "char": ".",
       "walkable": true
     },
     "10,0": {
@@ -64,11 +64,11 @@
       "walkable": true
     },
     "11,0": {
-      "char": ".",
+      "char": "\"",
       "walkable": true
     },
     "12,0": {
-      "char": "\u25cb",
+      "char": ".",
       "walkable": true
     },
     "13,0": {
@@ -76,107 +76,107 @@
       "walkable": true
     },
     "14,0": {
-      "char": ",",
+      "char": "'",
       "walkable": true
     },
     "15,0": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "16,0": {
-      "char": "\u25d8",
+      "char": "'",
       "walkable": true
     },
     "17,0": {
-      "char": "'",
+      "char": ".",
       "walkable": true
     },
     "18,0": {
-      "char": "'",
+      "char": ",",
       "walkable": true
     },
     "19,0": {
-      "char": ".",
+      "char": "\"",
       "walkable": true
     },
     "20,0": {
-      "char": "'",
-      "walkable": true
-    },
-    "21,0": {
-      "char": "'",
-      "walkable": true
-    },
-    "22,0": {
-      "char": "'",
-      "walkable": true
-    },
-    "23,0": {
-      "char": ",",
-      "walkable": true
-    },
-    "24,0": {
-      "char": "\u25cf",
-      "walkable": true
-    },
-    "0,1": {
-      "char": "'",
-      "walkable": true
-    },
-    "1,1": {
-      "char": ",",
-      "walkable": true
-    },
-    "2,1": {
-      "char": "\"",
-      "walkable": true
-    },
-    "3,1": {
       "char": ".",
       "walkable": true
     },
-    "4,1": {
+    "21,0": {
+      "char": ".",
+      "walkable": true
+    },
+    "22,0": {
       "char": "\"",
+      "walkable": true
+    },
+    "23,0": {
+      "char": "\u25d8",
+      "walkable": true
+    },
+    "24,0": {
+      "char": ".",
+      "walkable": true
+    },
+    "0,1": {
+      "char": ",",
+      "walkable": true
+    },
+    "1,1": {
+      "char": "*",
+      "walkable": true
+    },
+    "2,1": {
+      "char": ",",
+      "walkable": true
+    },
+    "3,1": {
+      "char": ",",
+      "walkable": true
+    },
+    "4,1": {
+      "char": "'",
       "walkable": true
     },
     "5,1": {
-      "char": "'",
+      "char": ",",
       "walkable": true
     },
     "6,1": {
-      "char": "\"",
+      "char": "\u2191",
       "walkable": true
     },
     "7,1": {
-      "char": "\"",
-      "walkable": true
-    },
-    "8,1": {
-      "char": "\"",
-      "walkable": true
-    },
-    "9,1": {
-      "char": ",",
-      "walkable": true
-    },
-    "10,1": {
-      "char": ",",
-      "walkable": true
-    },
-    "11,1": {
-      "char": "\"",
-      "walkable": true
-    },
-    "12,1": {
       "char": "'",
       "walkable": true
     },
+    "8,1": {
+      "char": ",",
+      "walkable": true
+    },
+    "9,1": {
+      "char": ".",
+      "walkable": true
+    },
+    "10,1": {
+      "char": ".",
+      "walkable": true
+    },
+    "11,1": {
+      "char": "'",
+      "walkable": true
+    },
+    "12,1": {
+      "char": ",",
+      "walkable": true
+    },
     "13,1": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "14,1": {
-      "char": "\u25d8",
+      "char": ",",
       "walkable": true
     },
     "15,1": {
@@ -196,139 +196,139 @@
       "walkable": true
     },
     "19,1": {
-      "char": "\u25cb",
+      "char": "\"",
       "walkable": true
     },
     "20,1": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "21,1": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "22,1": {
-      "char": "'",
+      "char": "\"",
       "walkable": true
     },
     "23,1": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "24,1": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "0,2": {
-      "char": "\u2248",
+      "char": "'",
       "walkable": true
     },
     "1,2": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "2,2": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "3,2": {
-      "char": "\u25d8",
+      "char": "\"",
       "walkable": true
     },
     "4,2": {
-      "char": "'",
+      "char": "\"",
       "walkable": true
     },
     "5,2": {
-      "char": "\u25cf",
+      "char": ".",
       "walkable": true
     },
     "6,2": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "7,2": {
-      "char": "'",
+      "char": ",",
       "walkable": true
     },
     "8,2": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "9,2": {
-      "char": ".",
+      "char": "\"",
       "walkable": true
     },
     "10,2": {
-      "char": ",",
-      "walkable": true
-    },
-    "11,2": {
-      "char": ",",
-      "walkable": true
-    },
-    "12,2": {
-      "char": ",",
-      "walkable": true
-    },
-    "13,2": {
       "char": ".",
       "walkable": true
     },
+    "11,2": {
+      "char": ".",
+      "walkable": true
+    },
+    "12,2": {
+      "char": "\u2191",
+      "walkable": true
+    },
+    "13,2": {
+      "char": "T",
+      "walkable": true
+    },
     "14,2": {
-      "char": "\u25cf",
+      "char": ".",
       "walkable": true
     },
     "15,2": {
-      "char": ",",
+      "char": "'",
       "walkable": true
     },
     "16,2": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "17,2": {
-      "char": "'",
+      "char": "\u2191",
       "walkable": true
     },
     "18,2": {
-      "char": "\"",
+      "char": ",",
       "walkable": true
     },
     "19,2": {
-      "char": "'",
+      "char": ".",
       "walkable": true
     },
     "20,2": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "21,2": {
-      "char": "\"",
+      "char": "\u25cf",
       "walkable": true
     },
     "22,2": {
-      "char": "\u25cf",
+      "char": ",",
       "walkable": true
     },
     "23,2": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "24,2": {
-      "char": "\u25cf",
+      "char": ".",
       "walkable": true
     },
     "0,3": {
-      "char": "\u2248",
+      "char": "\"",
       "walkable": true
     },
     "1,3": {
-      "char": "\u223c",
+      "char": "\"",
       "walkable": true
     },
     "2,3": {
-      "char": "\u223c",
+      "char": "\"",
       "walkable": true
     },
     "3,3": {
@@ -344,23 +344,23 @@
       "walkable": true
     },
     "6,3": {
-      "char": ",",
+      "char": ".",
       "walkable": true
     },
     "7,3": {
-      "char": "\u25d8",
+      "char": ",",
       "walkable": true
     },
     "8,3": {
-      "char": "'",
+      "char": "T",
       "walkable": true
     },
     "9,3": {
-      "char": "'",
+      "char": ".",
       "walkable": true
     },
     "10,3": {
-      "char": "'",
+      "char": ".",
       "walkable": true
     },
     "11,3": {
@@ -368,11 +368,11 @@
       "walkable": true
     },
     "12,3": {
-      "char": ".",
+      "char": "\"",
       "walkable": true
     },
     "13,3": {
-      "char": ".",
+      "char": "\"",
       "walkable": true
     },
     "14,3": {
@@ -380,35 +380,35 @@
       "walkable": true
     },
     "15,3": {
-      "char": "\"",
+      "char": ",",
       "walkable": true
     },
     "16,3": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "17,3": {
-      "char": "\u25cf",
+      "char": "\u2660",
       "walkable": true
     },
     "18,3": {
-      "char": ".",
+      "char": "\u2663",
       "walkable": true
     },
     "19,3": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "20,3": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "21,3": {
-      "char": "\"",
+      "char": "T",
       "walkable": true
     },
     "22,3": {
-      "char": "'",
+      "char": "\"",
       "walkable": true
     },
     "23,3": {
@@ -416,7 +416,7 @@
       "walkable": true
     },
     "24,3": {
-      "char": "'",
+      "char": ".",
       "walkable": true
     },
     "0,4": {
@@ -424,15 +424,15 @@
       "walkable": true
     },
     "1,4": {
-      "char": "\u2248",
+      "char": "\"",
       "walkable": true
     },
     "2,4": {
-      "char": "\u2248",
+      "char": ".",
       "walkable": true
     },
     "3,4": {
-      "char": "\u2248",
+      "char": "'",
       "walkable": true
     },
     "4,4": {
@@ -440,19 +440,19 @@
       "walkable": true
     },
     "5,4": {
-      "char": "\"",
+      "char": "\u25d8",
       "walkable": true
     },
     "6,4": {
-      "char": "\u25cf",
+      "char": ".",
       "walkable": true
     },
     "7,4": {
-      "char": "'",
+      "char": "\u2660",
       "walkable": true
     },
     "8,4": {
-      "char": ".",
+      "char": "\u2663",
       "walkable": true
     },
     "9,4": {
@@ -460,23 +460,23 @@
       "walkable": true
     },
     "10,4": {
-      "char": ",",
+      "char": ".",
       "walkable": true
     },
     "11,4": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "12,4": {
-      "char": ",",
+      "char": "T",
       "walkable": true
     },
     "13,4": {
-      "char": "\u2663",
+      "char": "\"",
       "walkable": true
     },
     "14,4": {
-      "char": ".",
+      "char": "\"",
       "walkable": true
     },
     "15,4": {
@@ -484,23 +484,23 @@
       "walkable": true
     },
     "16,4": {
-      "char": ",",
+      "char": ".",
       "walkable": true
     },
     "17,4": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "18,4": {
-      "char": "'",
-      "walkable": true
-    },
-    "19,4": {
       "char": ",",
       "walkable": true
     },
+    "19,4": {
+      "char": ".",
+      "walkable": true
+    },
     "20,4": {
-      "char": "'",
+      "char": ",",
       "walkable": true
     },
     "21,4": {
@@ -508,59 +508,59 @@
       "walkable": true
     },
     "22,4": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "23,4": {
-      "char": ".",
+      "char": "\"",
       "walkable": true
     },
     "24,4": {
-      "char": ",",
+      "char": "'",
       "walkable": true
     },
     "0,5": {
-      "char": ",",
+      "char": "'",
       "walkable": true
     },
     "1,5": {
-      "char": "~",
+      "char": ".",
       "walkable": true
     },
     "2,5": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "3,5": {
-      "char": "\u2248",
+      "char": ".",
       "walkable": true
     },
     "4,5": {
-      "char": "~",
+      "char": "'",
       "walkable": true
     },
     "5,5": {
-      "char": "~",
+      "char": "\u25cf",
       "walkable": true
     },
     "6,5": {
-      "char": "\u223c",
+      "char": ",",
       "walkable": true
     },
     "7,5": {
-      "char": "~",
+      "char": "'",
       "walkable": true
     },
     "8,5": {
-      "char": "\u2248",
+      "char": ",",
       "walkable": true
     },
     "9,5": {
-      "char": "\u2248",
+      "char": "\"",
       "walkable": true
     },
     "10,5": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "11,5": {
@@ -568,7 +568,7 @@
       "walkable": true
     },
     "12,5": {
-      "char": "'",
+      "char": "\u2663",
       "walkable": true
     },
     "13,5": {
@@ -580,7 +580,7 @@
       "walkable": true
     },
     "15,5": {
-      "char": "\"",
+      "char": ",",
       "walkable": true
     },
     "16,5": {
@@ -588,35 +588,35 @@
       "walkable": true
     },
     "17,5": {
-      "char": "*",
+      "char": "\u25cf",
       "walkable": true
     },
     "18,5": {
-      "char": "\"",
-      "walkable": true
-    },
-    "19,5": {
-      "char": "\u2660",
-      "walkable": true
-    },
-    "20,5": {
       "char": ",",
       "walkable": true
     },
+    "19,5": {
+      "char": ".",
+      "walkable": true
+    },
+    "20,5": {
+      "char": "\"",
+      "walkable": true
+    },
     "21,5": {
-      "char": "T",
+      "char": "'",
       "walkable": true
     },
     "22,5": {
-      "char": "'",
+      "char": "\u25cf",
       "walkable": true
     },
     "23,5": {
-      "char": "'",
+      "char": "\u2660",
       "walkable": true
     },
     "24,5": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "0,6": {
@@ -624,63 +624,63 @@
       "walkable": true
     },
     "1,6": {
-      "char": ".",
+      "char": "\u25cf",
       "walkable": true
     },
     "2,6": {
-      "char": ",",
-      "walkable": true
-    },
-    "3,6": {
-      "char": "\u223c",
-      "walkable": true
-    },
-    "4,6": {
-      "char": "\"",
-      "walkable": true
-    },
-    "5,6": {
-      "char": "~",
-      "walkable": true
-    },
-    "6,6": {
-      "char": "~",
-      "walkable": true
-    },
-    "7,6": {
-      "char": "\u223c",
-      "walkable": true
-    },
-    "8,6": {
-      "char": "~",
-      "walkable": true
-    },
-    "9,6": {
-      "char": "\u223c",
-      "walkable": true
-    },
-    "10,6": {
-      "char": "\u2248",
-      "walkable": true
-    },
-    "11,6": {
       "char": "'",
       "walkable": true
     },
-    "12,6": {
+    "3,6": {
+      "char": ".",
+      "walkable": true
+    },
+    "4,6": {
       "char": ",",
       "walkable": true
     },
-    "13,6": {
+    "5,6": {
+      "char": ".",
+      "walkable": true
+    },
+    "6,6": {
+      "char": "\u2663",
+      "walkable": true
+    },
+    "7,6": {
+      "char": "'",
+      "walkable": true
+    },
+    "8,6": {
+      "char": "'",
+      "walkable": true
+    },
+    "9,6": {
+      "char": "'",
+      "walkable": true
+    },
+    "10,6": {
+      "char": "\u2191",
+      "walkable": true
+    },
+    "11,6": {
       "char": "T",
       "walkable": true
     },
+    "12,6": {
+      "char": ".",
+      "walkable": true
+    },
+    "13,6": {
+      "char": ",",
+      "walkable": true
+    },
     "14,6": {
-      "char": "\u223c",
+      "char": ",",
       "walkable": true
     },
     "15,6": {
-      "char": "\"",
+      "char": "\u2663",
       "walkable": true
     },
     "16,6": {
@@ -688,15 +688,15 @@
       "walkable": true
     },
     "17,6": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "18,6": {
-      "char": ".",
+      "char": "\u25cf",
       "walkable": true
     },
     "19,6": {
-      "char": "T",
+      "char": "\"",
       "walkable": true
     },
     "20,6": {
@@ -704,23 +704,23 @@
       "walkable": true
     },
     "21,6": {
-      "char": ",",
+      "char": "'",
       "walkable": true
     },
     "22,6": {
-      "char": "\u25d8",
+      "char": ",",
       "walkable": true
     },
     "23,6": {
-      "char": "'",
-      "walkable": true
-    },
-    "24,6": {
       "char": "\"",
       "walkable": true
     },
-    "0,7": {
+    "24,6": {
       "char": "'",
+      "walkable": true
+    },
+    "0,7": {
+      "char": "\"",
       "walkable": true
     },
     "1,7": {
@@ -728,11 +728,11 @@
       "walkable": true
     },
     "2,7": {
-      "char": ".",
+      "char": "\u25d8",
       "walkable": true
     },
     "3,7": {
-      "char": "'",
+      "char": "\"",
       "walkable": true
     },
     "4,7": {
@@ -740,67 +740,67 @@
       "walkable": true
     },
     "5,7": {
-      "char": "\u223c",
-      "walkable": true
-    },
-    "6,7": {
-      "char": ".",
-      "walkable": true
-    },
-    "7,7": {
-      "char": "\u223c",
-      "walkable": true
-    },
-    "8,7": {
-      "char": ",",
-      "walkable": true
-    },
-    "9,7": {
-      "char": ".",
-      "walkable": true
-    },
-    "10,7": {
       "char": "\"",
       "walkable": true
     },
+    "6,7": {
+      "char": "\"",
+      "walkable": true
+    },
+    "7,7": {
+      "char": ",",
+      "walkable": true
+    },
+    "8,7": {
+      "char": "\"",
+      "walkable": true
+    },
+    "9,7": {
+      "char": "\"",
+      "walkable": true
+    },
+    "10,7": {
+      "char": "\u2663",
+      "walkable": true
+    },
     "11,7": {
-      "char": "\u223c",
+      "char": "\u2660",
       "walkable": true
     },
     "12,7": {
-      "char": "\u223c",
-      "walkable": true
-    },
-    "13,7": {
-      "char": "~",
-      "walkable": true
-    },
-    "14,7": {
-      "char": "\u223c",
-      "walkable": true
-    },
-    "15,7": {
-      "char": "\u223c",
-      "walkable": true
-    },
-    "16,7": {
       "char": "'",
       "walkable": true
     },
+    "13,7": {
+      "char": "'",
+      "walkable": true
+    },
+    "14,7": {
+      "char": "'",
+      "walkable": true
+    },
+    "15,7": {
+      "char": ",",
+      "walkable": true
+    },
+    "16,7": {
+      "char": "\"",
+      "walkable": true
+    },
     "17,7": {
-      "char": "\u223c",
+      "char": ".",
       "walkable": true
     },
     "18,7": {
-      "char": "~",
+      "char": ".",
       "walkable": true
     },
     "19,7": {
-      "char": "\u223c",
+      "char": ".",
       "walkable": true
     },
     "20,7": {
-      "char": "\u223c",
+      "char": ",",
       "walkable": true
     },
     "21,7": {
@@ -808,63 +808,63 @@
       "walkable": true
     },
     "22,7": {
-      "char": "\u223c",
+      "char": ".",
       "walkable": true
     },
     "23,7": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "24,7": {
-      "char": "\u2663",
+      "char": "\"",
       "walkable": true
     },
     "0,8": {
-      "char": "\"",
+      "char": ",",
       "walkable": true
     },
     "1,8": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "2,8": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "3,8": {
-      "char": "'",
+      "char": ".",
       "walkable": true
     },
     "4,8": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "5,8": {
-      "char": ",",
+      "char": "\u2663",
       "walkable": true
     },
     "6,8": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "7,8": {
-      "char": "\"",
+      "char": ",",
       "walkable": true
     },
     "8,8": {
-      "char": "\u2660",
+      "char": "\"",
       "walkable": true
     },
     "9,8": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "10,8": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "11,8": {
-      "char": "'",
+      "char": ".",
       "walkable": true
     },
     "12,8": {
@@ -872,99 +872,99 @@
       "walkable": true
     },
     "13,8": {
-      "char": "\"",
+      "char": ",",
       "walkable": true
     },
     "14,8": {
-      "char": "~",
-      "walkable": true
-    },
-    "15,8": {
-      "char": "~",
-      "walkable": true
-    },
-    "16,8": {
-      "char": "=",
-      "walkable": true
-    },
-    "17,8": {
-      "char": "\u2248",
-      "walkable": true
-    },
-    "18,8": {
-      "char": "~",
-      "walkable": true
-    },
-    "19,8": {
-      "char": "~",
-      "walkable": true
-    },
-    "20,8": {
-      "char": "\u2248",
-      "walkable": true
-    },
-    "21,8": {
-      "char": "\u223c",
-      "walkable": true
-    },
-    "22,8": {
-      "char": "\u223c",
-      "walkable": true
-    },
-    "23,8": {
-      "char": "\u2248",
-      "walkable": true
-    },
-    "24,8": {
-      "char": "\u2248",
-      "walkable": true
-    },
-    "0,9": {
-      "char": ",",
-      "walkable": true
-    },
-    "1,9": {
       "char": "\"",
       "walkable": true
     },
-    "2,9": {
+    "15,8": {
+      "char": "\"",
+      "walkable": true
+    },
+    "16,8": {
       "char": ".",
       "walkable": true
     },
-    "3,9": {
-      "char": ".",
+    "17,8": {
+      "char": "\"",
       "walkable": true
     },
-    "4,9": {
-      "char": ",",
-      "walkable": true
-    },
-    "5,9": {
-      "char": ".",
-      "walkable": true
-    },
-    "6,9": {
+    "18,8": {
       "char": "'",
       "walkable": true
     },
-    "7,9": {
+    "19,8": {
       "char": ".",
+      "walkable": true
+    },
+    "20,8": {
+      "char": "\u2660",
+      "walkable": true
+    },
+    "21,8": {
+      "char": ".",
+      "walkable": true
+    },
+    "22,8": {
+      "char": "\u2191",
+      "walkable": true
+    },
+    "23,8": {
+      "char": ",",
+      "walkable": true
+    },
+    "24,8": {
+      "char": ",",
+      "walkable": true
+    },
+    "0,9": {
+      "char": ".",
+      "walkable": true
+    },
+    "1,9": {
+      "char": "'",
+      "walkable": true
+    },
+    "2,9": {
+      "char": "\u25d8",
+      "walkable": true
+    },
+    "3,9": {
+      "char": "\u25cb",
+      "walkable": true
+    },
+    "4,9": {
+      "char": "\"",
+      "walkable": true
+    },
+    "5,9": {
+      "char": "\"",
+      "walkable": true
+    },
+    "6,9": {
+      "char": ".",
+      "walkable": true
+    },
+    "7,9": {
+      "char": "\"",
       "walkable": true
     },
     "8,9": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "9,9": {
-      "char": ",",
+      "char": "'",
       "walkable": true
     },
     "10,9": {
-      "char": ",",
+      "char": "\u2191",
       "walkable": true
     },
     "11,9": {
-      "char": "\u2660",
+      "char": "\u2663",
       "walkable": true
     },
     "12,9": {
@@ -972,59 +972,59 @@
       "walkable": true
     },
     "13,9": {
-      "char": ".",
+      "char": "T",
       "walkable": true
     },
     "14,9": {
-      "char": "T",
+      "char": "\"",
       "walkable": true
     },
     "15,9": {
-      "char": "\u2660",
+      "char": "*",
       "walkable": true
     },
     "16,9": {
-      "char": ",",
+      "char": "\u2191",
       "walkable": true
     },
     "17,9": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "18,9": {
-      "char": "\u2663",
+      "char": "*",
       "walkable": true
     },
     "19,9": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "20,9": {
-      "char": "\u2248",
+      "char": "\"",
       "walkable": true
     },
     "21,9": {
-      "char": "T",
+      "char": "\"",
       "walkable": true
     },
     "22,9": {
-      "char": "\u223c",
+      "char": "\"",
       "walkable": true
     },
     "23,9": {
-      "char": "~",
+      "char": "\u2248",
       "walkable": true
     },
     "24,9": {
-      "char": "\u223c",
+      "char": "'",
       "walkable": true
     },
     "0,10": {
-      "char": "\"",
+      "char": ",",
       "walkable": true
     },
     "1,10": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "2,10": {
@@ -1032,23 +1032,23 @@
       "walkable": true
     },
     "3,10": {
-      "char": "'",
+      "char": ",",
       "walkable": true
     },
     "4,10": {
-      "char": ".",
-      "walkable": true
-    },
-    "5,10": {
       "char": "'",
       "walkable": true
     },
+    "5,10": {
+      "char": ",",
+      "walkable": true
+    },
     "6,10": {
-      "char": ".",
+      "char": "\"",
       "walkable": true
     },
     "7,10": {
-      "char": "*",
+      "char": "\"",
       "walkable": true
     },
     "8,10": {
@@ -1056,79 +1056,79 @@
       "walkable": true
     },
     "9,10": {
-      "char": "\"",
+      "char": "\u25cf",
       "walkable": true
     },
     "10,10": {
-      "char": "\u2191",
-      "walkable": true
-    },
-    "11,10": {
-      "char": ",",
-      "walkable": true
-    },
-    "12,10": {
-      "char": ",",
-      "walkable": true
-    },
-    "13,10": {
-      "char": "\u2660",
-      "walkable": true
-    },
-    "14,10": {
-      "char": "\"",
-      "walkable": true
-    },
-    "15,10": {
-      "char": "\u2191",
-      "walkable": true
-    },
-    "16,10": {
-      "char": "'",
-      "walkable": true
-    },
-    "17,10": {
-      "char": ",",
-      "walkable": true
-    },
-    "18,10": {
-      "char": ".",
-      "walkable": true
-    },
-    "19,10": {
-      "char": ".",
-      "walkable": true
-    },
-    "20,10": {
-      "char": "\u2660",
-      "walkable": true
-    },
-    "21,10": {
-      "char": "T",
-      "walkable": true
-    },
-    "22,10": {
-      "char": "'",
-      "walkable": true
-    },
-    "23,10": {
       "char": "\u2248",
       "walkable": true
     },
-    "24,10": {
+    "11,10": {
+      "char": "T",
+      "walkable": true
+    },
+    "12,10": {
+      "char": ".",
+      "walkable": true
+    },
+    "13,10": {
+      "char": ",",
+      "walkable": true
+    },
+    "14,10": {
+      "char": "\u2191",
+      "walkable": true
+    },
+    "15,10": {
+      "char": "\u223c",
+      "walkable": true
+    },
+    "16,10": {
+      "char": "~",
+      "walkable": true
+    },
+    "17,10": {
+      "char": "\u2660",
+      "walkable": true
+    },
+    "18,10": {
+      "char": "\u2660",
+      "walkable": true
+    },
+    "19,10": {
       "char": "\"",
       "walkable": true
     },
-    "0,11": {
-      "char": "\"",
-      "walkable": true
-    },
-    "1,11": {
+    "20,10": {
       "char": "'",
       "walkable": true
     },
+    "21,10": {
+      "char": "\u2248",
+      "walkable": true
+    },
+    "22,10": {
+      "char": "\u2248",
+      "walkable": true
+    },
+    "23,10": {
+      "char": "\u2261",
+      "walkable": true
+    },
+    "24,10": {
+      "char": ",",
+      "walkable": true
+    },
+    "0,11": {
+      "char": ",",
+      "walkable": true
+    },
+    "1,11": {
+      "char": "*",
+      "walkable": true
+    },
     "2,11": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "3,11": {
@@ -1136,95 +1136,95 @@
       "walkable": true
     },
     "4,11": {
-      "char": "\"",
+      "char": "*",
       "walkable": true
     },
     "5,11": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "6,11": {
-      "char": "\"",
+      "char": "\u223c",
       "walkable": true
     },
     "7,11": {
-      "char": ",",
+      "char": "\u2248",
       "walkable": true
     },
     "8,11": {
-      "char": ".",
+      "char": "~",
       "walkable": true
     },
     "9,11": {
-      "char": "'",
+      "char": "~",
       "walkable": true
     },
     "10,11": {
-      "char": ",",
-      "walkable": true
-    },
-    "11,11": {
-      "char": ",",
-      "walkable": true
-    },
-    "12,11": {
-      "char": "T",
-      "walkable": true
-    },
-    "13,11": {
-      "char": "T",
-      "walkable": true
-    },
-    "14,11": {
-      "char": ",",
-      "walkable": true
-    },
-    "15,11": {
-      "char": ",",
-      "walkable": true
-    },
-    "16,11": {
       "char": "\u2663",
       "walkable": true
     },
+    "11,11": {
+      "char": "~",
+      "walkable": true
+    },
+    "12,11": {
+      "char": "~",
+      "walkable": true
+    },
+    "13,11": {
+      "char": "\u223c",
+      "walkable": true
+    },
+    "14,11": {
+      "char": "\u2191",
+      "walkable": true
+    },
+    "15,11": {
+      "char": "~",
+      "walkable": true
+    },
+    "16,11": {
+      "char": "\u2248",
+      "walkable": true
+    },
     "17,11": {
-      "char": "\u2660",
+      "char": "~",
       "walkable": true
     },
     "18,11": {
-      "char": "\u2191",
+      "char": "~",
       "walkable": true
     },
     "19,11": {
-      "char": "\"",
+      "char": "\u2663",
       "walkable": true
     },
     "20,11": {
-      "char": ".",
+      "char": "\u223c",
       "walkable": true
     },
     "21,11": {
-      "char": "\u2191",
+      "char": "\u2248",
       "walkable": true
     },
     "22,11": {
-      "char": "'",
+      "char": "\u223c",
       "walkable": true
     },
     "23,11": {
-      "char": "'",
+      "char": "\u2261",
       "walkable": true
     },
     "24,11": {
-      "char": ",",
+      "char": "\u223c",
       "walkable": true
     },
     "0,12": {
-      "char": "'",
+      "char": "~",
       "walkable": true
     },
     "1,12": {
-      "char": "\"",
+      "char": "\u2248",
       "walkable": true
     },
     "2,12": {
@@ -1236,79 +1236,79 @@
       "walkable": true
     },
     "4,12": {
-      "char": ",",
+      "char": "\u223c",
       "walkable": true
     },
     "5,12": {
-      "char": ".",
+      "char": "~",
       "walkable": true
     },
     "6,12": {
-      "char": ".",
+      "char": "~",
       "walkable": true
     },
     "7,12": {
-      "char": "\"",
+      "char": "~",
       "walkable": true
     },
     "8,12": {
-      "char": ",",
+      "char": "\u223c",
       "walkable": true
     },
     "9,12": {
-      "char": "\"",
+      "char": "\u223c",
       "walkable": true
     },
     "10,12": {
-      "char": ".",
+      "char": "\u223c",
       "walkable": true
     },
     "11,12": {
-      "char": ",",
+      "char": "\u2248",
       "walkable": true
     },
     "12,12": {
-      "char": ".",
+      "char": "\u2248",
       "walkable": true
     },
     "13,12": {
-      "char": "\"",
+      "char": "~",
       "walkable": true
     },
     "14,12": {
-      "char": "\"",
+      "char": "\u2248",
       "walkable": true
     },
     "15,12": {
-      "char": "T",
+      "char": "~",
       "walkable": true
     },
     "16,12": {
-      "char": "'",
+      "char": "\u2248",
       "walkable": true
     },
     "17,12": {
-      "char": "'",
+      "char": "\u2248",
       "walkable": true
     },
     "18,12": {
-      "char": "\u2663",
+      "char": "\u2248",
       "walkable": true
     },
     "19,12": {
-      "char": ",",
+      "char": "\u2248",
       "walkable": true
     },
     "20,12": {
-      "char": ",",
+      "char": "\u223c",
       "walkable": true
     },
     "21,12": {
-      "char": "'",
+      "char": "~",
       "walkable": true
     },
     "22,12": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "23,12": {
@@ -1316,131 +1316,131 @@
       "walkable": true
     },
     "24,12": {
-      "char": "\u2663",
+      "char": "'",
       "walkable": true
     },
     "0,13": {
-      "char": "\"",
+      "char": "\u2248",
       "walkable": true
     },
     "1,13": {
-      "char": ",",
+      "char": "\u223c",
       "walkable": true
     },
     "2,13": {
-      "char": "'",
+      "char": "~",
       "walkable": true
     },
     "3,13": {
-      "char": ".",
+      "char": "~",
       "walkable": true
     },
     "4,13": {
-      "char": "\u25d8",
+      "char": "\u223c",
       "walkable": true
     },
     "5,13": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "6,13": {
-      "char": ",",
+      "char": "\u2248",
       "walkable": true
     },
     "7,13": {
-      "char": "\"",
+      "char": "\u2248",
       "walkable": true
     },
     "8,13": {
-      "char": ",",
+      "char": "\u25cf",
       "walkable": true
     },
     "9,13": {
-      "char": "'",
+      "char": "\u223c",
       "walkable": true
     },
     "10,13": {
-      "char": ",",
+      "char": "'",
       "walkable": true
     },
     "11,13": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "12,13": {
-      "char": "\"",
+      "char": "\u223c",
       "walkable": true
     },
     "13,13": {
-      "char": ".",
+      "char": "\u2248",
       "walkable": true
     },
     "14,13": {
-      "char": "'",
+      "char": ",",
       "walkable": true
     },
     "15,13": {
-      "char": "\u2191",
+      "char": ".",
       "walkable": true
     },
     "16,13": {
-      "char": "\"",
+      "char": "\u2248",
       "walkable": true
     },
     "17,13": {
-      "char": "\"",
+      "char": "~",
       "walkable": true
     },
     "18,13": {
-      "char": ",",
+      "char": "\u2248",
       "walkable": true
     },
     "19,13": {
-      "char": ".",
+      "char": "\u2248",
       "walkable": true
     },
     "20,13": {
-      "char": "T",
+      "char": ".",
       "walkable": true
     },
     "21,13": {
-      "char": ",",
-      "walkable": true
-    },
-    "22,13": {
       "char": "\u2663",
       "walkable": true
     },
-    "23,13": {
-      "char": "'",
-      "walkable": true
-    },
-    "24,13": {
-      "char": ",",
-      "walkable": true
-    },
-    "0,14": {
+    "22,13": {
       "char": "\"",
       "walkable": true
     },
-    "1,14": {
-      "char": ",",
+    "23,13": {
+      "char": "\"",
       "walkable": true
     },
-    "2,14": {
+    "24,13": {
       "char": "'",
       "walkable": true
     },
-    "3,14": {
+    "0,14": {
+      "char": "\u223c",
+      "walkable": true
+    },
+    "1,14": {
       "char": ".",
+      "walkable": true
+    },
+    "2,14": {
+      "char": ".",
+      "walkable": true
+    },
+    "3,14": {
+      "char": "\"",
       "walkable": true
     },
     "4,14": {
-      "char": ",",
+      "char": "~",
       "walkable": true
     },
     "5,14": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "6,14": {
@@ -1448,7 +1448,7 @@
       "walkable": true
     },
     "7,14": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "8,14": {
@@ -1456,7 +1456,7 @@
       "walkable": true
     },
     "9,14": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "10,14": {
@@ -1464,19 +1464,19 @@
       "walkable": true
     },
     "11,14": {
-      "char": "\"",
+      "char": "\u2191",
       "walkable": true
     },
     "12,14": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "13,14": {
-      "char": "\"",
+      "char": "\u25cb",
       "walkable": true
     },
     "14,14": {
-      "char": "T",
+      "char": "\u2663",
       "walkable": true
     },
     "15,14": {
@@ -1484,11 +1484,11 @@
       "walkable": true
     },
     "16,14": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "17,14": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "18,14": {
@@ -1496,11 +1496,11 @@
       "walkable": true
     },
     "19,14": {
-      "char": "T",
+      "char": ",",
       "walkable": true
     },
     "20,14": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "21,14": {
@@ -1508,51 +1508,51 @@
       "walkable": true
     },
     "22,14": {
-      "char": "\u2660",
+      "char": ",",
       "walkable": true
     },
     "23,14": {
-      "char": ",",
+      "char": ".",
       "walkable": true
     },
     "24,14": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "0,15": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "1,15": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "2,15": {
-      "char": ",",
+      "char": "'",
       "walkable": true
     },
     "3,15": {
-      "char": ",",
+      "char": "*",
       "walkable": true
     },
     "4,15": {
-      "char": "\"",
+      "char": ",",
       "walkable": true
     },
     "5,15": {
-      "char": ".",
+      "char": "\u25d8",
       "walkable": true
     },
     "6,15": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "7,15": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "8,15": {
-      "char": "'",
+      "char": "*",
       "walkable": true
     },
     "9,15": {
@@ -1560,55 +1560,55 @@
       "walkable": true
     },
     "10,15": {
-      "char": ".",
-      "walkable": true
-    },
-    "11,15": {
-      "char": ",",
-      "walkable": true
-    },
-    "12,15": {
-      "char": "'",
-      "walkable": true
-    },
-    "13,15": {
       "char": "\"",
       "walkable": true
     },
-    "14,15": {
+    "11,15": {
       "char": "'",
       "walkable": true
     },
-    "15,15": {
-      "char": "\u2191",
-      "walkable": true
-    },
-    "16,15": {
-      "char": "\u2191",
-      "walkable": true
-    },
-    "17,15": {
-      "char": "\u2660",
-      "walkable": true
-    },
-    "18,15": {
-      "char": ",",
-      "walkable": true
-    },
-    "19,15": {
-      "char": "'",
-      "walkable": true
-    },
-    "20,15": {
+    "12,15": {
       "char": ".",
       "walkable": true
     },
+    "13,15": {
+      "char": ",",
+      "walkable": true
+    },
+    "14,15": {
+      "char": "\"",
+      "walkable": true
+    },
+    "15,15": {
+      "char": "\"",
+      "walkable": true
+    },
+    "16,15": {
+      "char": "\"",
+      "walkable": true
+    },
+    "17,15": {
+      "char": "\u25cf",
+      "walkable": true
+    },
+    "18,15": {
+      "char": "'",
+      "walkable": true
+    },
+    "19,15": {
+      "char": "\"",
+      "walkable": true
+    },
+    "20,15": {
+      "char": "'",
+      "walkable": true
+    },
     "21,15": {
-      "char": "T",
+      "char": "\u2660",
       "walkable": true
     },
     "22,15": {
-      "char": "\u2191",
+      "char": "\"",
       "walkable": true
     },
     "23,15": {
@@ -1616,11 +1616,11 @@
       "walkable": true
     },
     "24,15": {
-      "char": "\"",
+      "char": "*",
       "walkable": true
     },
     "0,16": {
-      "char": "'",
+      "char": ".",
       "walkable": true
     },
     "1,16": {
@@ -1632,11 +1632,11 @@
       "walkable": true
     },
     "3,16": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "4,16": {
-      "char": "\"",
+      "char": ",",
       "walkable": true
     },
     "5,16": {
@@ -1644,75 +1644,75 @@
       "walkable": true
     },
     "6,16": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "7,16": {
-      "char": "'",
+      "char": ".",
       "walkable": true
     },
     "8,16": {
-      "char": "\u25cb",
+      "char": "'",
       "walkable": true
     },
     "9,16": {
-      "char": ",",
+      "char": ".",
       "walkable": true
     },
     "10,16": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "11,16": {
-      "char": "'",
+      "char": ",",
       "walkable": true
     },
     "12,16": {
-      "char": ".",
+      "char": "\u25d8",
       "walkable": true
     },
     "13,16": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "14,16": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "15,16": {
-      "char": ".",
+      "char": "'",
       "walkable": true
     },
     "16,16": {
-      "char": ",",
+      "char": "'",
       "walkable": true
     },
     "17,16": {
-      "char": "T",
+      "char": ",",
       "walkable": true
     },
     "18,16": {
-      "char": "\u2191",
+      "char": "'",
       "walkable": true
     },
     "19,16": {
-      "char": "\u2660",
+      "char": "'",
       "walkable": true
     },
     "20,16": {
-      "char": "T",
+      "char": "\u2660",
       "walkable": true
     },
     "21,16": {
-      "char": "\u2191",
+      "char": "'",
       "walkable": true
     },
     "22,16": {
-      "char": "\u2191",
+      "char": "\u25d8",
       "walkable": true
     },
     "23,16": {
-      "char": "'",
+      "char": ",",
       "walkable": true
     },
     "24,16": {
@@ -1720,39 +1720,39 @@
       "walkable": true
     },
     "0,17": {
-      "char": "'",
+      "char": "\u25d8",
       "walkable": true
     },
     "1,17": {
-      "char": "\"",
-      "walkable": true
-    },
-    "2,17": {
-      "char": ".",
-      "walkable": true
-    },
-    "3,17": {
-      "char": "\"",
-      "walkable": true
-    },
-    "4,17": {
       "char": "'",
       "walkable": true
     },
+    "2,17": {
+      "char": "\"",
+      "walkable": true
+    },
+    "3,17": {
+      "char": "'",
+      "walkable": true
+    },
+    "4,17": {
+      "char": "\"",
+      "walkable": true
+    },
     "5,17": {
-      "char": ",",
+      "char": ".",
       "walkable": true
     },
     "6,17": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "7,17": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "8,17": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "9,17": {
@@ -1760,19 +1760,19 @@
       "walkable": true
     },
     "10,17": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "11,17": {
-      "char": "'",
+      "char": ",",
       "walkable": true
     },
     "12,17": {
-      "char": "'",
+      "char": ".",
       "walkable": true
     },
     "13,17": {
-      "char": ",",
+      "char": "'",
       "walkable": true
     },
     "14,17": {
@@ -1784,11 +1784,11 @@
       "walkable": true
     },
     "16,17": {
-      "char": "T",
+      "char": ".",
       "walkable": true
     },
     "17,17": {
-      "char": ",",
+      "char": ".",
       "walkable": true
     },
     "18,17": {
@@ -1796,31 +1796,31 @@
       "walkable": true
     },
     "19,17": {
-      "char": ",",
+      "char": "'",
       "walkable": true
     },
     "20,17": {
-      "char": "*",
-      "walkable": true
-    },
-    "21,17": {
-      "char": "'",
-      "walkable": true
-    },
-    "22,17": {
-      "char": ".",
-      "walkable": true
-    },
-    "23,17": {
-      "char": "'",
-      "walkable": true
-    },
-    "24,17": {
       "char": ",",
       "walkable": true
     },
-    "0,18": {
+    "21,17": {
+      "char": ",",
+      "walkable": true
+    },
+    "22,17": {
+      "char": ",",
+      "walkable": true
+    },
+    "23,17": {
+      "char": "\"",
+      "walkable": true
+    },
+    "24,17": {
       "char": "'",
+      "walkable": true
+    },
+    "0,18": {
+      "char": ",",
       "walkable": true
     },
     "1,18": {
@@ -1828,43 +1828,43 @@
       "walkable": true
     },
     "2,18": {
-      "char": "\"",
-      "walkable": true
-    },
-    "3,18": {
-      "char": "'",
-      "walkable": true
-    },
-    "4,18": {
-      "char": "\"",
-      "walkable": true
-    },
-    "5,18": {
-      "char": "\"",
-      "walkable": true
-    },
-    "6,18": {
-      "char": "\"",
-      "walkable": true
-    },
-    "7,18": {
       "char": ",",
       "walkable": true
     },
+    "3,18": {
+      "char": ".",
+      "walkable": true
+    },
+    "4,18": {
+      "char": "'",
+      "walkable": true
+    },
+    "5,18": {
+      "char": ",",
+      "walkable": true
+    },
+    "6,18": {
+      "char": ".",
+      "walkable": true
+    },
+    "7,18": {
+      "char": "'",
+      "walkable": true
+    },
     "8,18": {
-      "char": "\"",
+      "char": ",",
       "walkable": true
     },
     "9,18": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "10,18": {
-      "char": ".",
+      "char": ",",
       "walkable": true
     },
     "11,18": {
-      "char": "\"",
+      "char": ",",
       "walkable": true
     },
     "12,18": {
@@ -1872,15 +1872,15 @@
       "walkable": true
     },
     "13,18": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "14,18": {
-      "char": "\"",
+      "char": ".",
       "walkable": true
     },
     "15,18": {
-      "char": "\"",
+      "char": "'",
       "walkable": true
     },
     "16,18": {
@@ -1888,11 +1888,11 @@
       "walkable": true
     },
     "17,18": {
-      "char": ",",
+      "char": "\"",
       "walkable": true
     },
     "18,18": {
-      "char": "'",
+      "char": "\"",
       "walkable": true
     },
     "19,18": {
@@ -1900,41 +1900,41 @@
       "walkable": true
     },
     "20,18": {
-      "char": ".",
-      "walkable": true
-    },
-    "21,18": {
-      "char": ",",
-      "walkable": true
-    },
-    "22,18": {
       "char": "\"",
       "walkable": true
     },
+    "21,18": {
+      "char": ".",
+      "walkable": true
+    },
+    "22,18": {
+      "char": ".",
+      "walkable": true
+    },
     "23,18": {
-      "char": "'",
+      "char": ".",
       "walkable": true
     },
     "24,18": {
-      "char": ",",
+      "char": "\u25d8",
       "walkable": true
     }
   },
   "chests": [
     {
-      "x": 12,
-      "y": 14,
-      "opened": false,
+      "x": 17,
+      "y": 8,
+      "opened": true,
       "item": {
-        "name": "Leather Armor",
-        "slot": "body",
+        "name": "Iron Helmet",
+        "slot": "head",
         "stats": {
           "attack": 0,
-          "defense": 8,
+          "defense": 5,
           "magic_attack": 0,
           "magic_defense": 0,
           "speed": 0,
-          "hp_bonus": 15,
+          "hp_bonus": 10,
           "mp_bonus": 0,
           "evasion": 0,
           "accuracy": 0
