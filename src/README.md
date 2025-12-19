@@ -94,6 +94,10 @@ src/
 ├── story/
 │   ├── story.py         # Story progression
 │   └── dialogue.py      # Dialogue system
+├── items/
+│   ├── item.py          # Base item class
+│   ├── weapon.py        # Weapons
+│   └── inventory.py     # Inventory
 ├── scenery/
 │   └── terrain.py       # Terrain elements
 ├── world/

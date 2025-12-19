@@ -41,6 +41,7 @@ You are an expert game developer assistant specializing in creating engaging Ste
 - **src/villain/**: Main villain/antagonist and story elements
 - **src/legendary/**: Legendary enemies, items, and encounters
 - **src/story/**: Story content, dialogue, cutscenes, and narrative
+- **src/items/**: All items, weapons, consumables, and inventory
 - **src/scenery/**: Terrain and environment
 - **src/world/**: World generation
 - **src/assets/tiles/**: Tile graphics (16x16 PNG)

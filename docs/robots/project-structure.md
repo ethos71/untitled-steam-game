@@ -88,6 +88,15 @@ untitled-steam-game/
     │   ├── scripts/              # Story scripts
     │   └── README.md             # Story documentation
     │
+    ├── items/
+    │   ├── item.py               # Base item class
+    │   ├── weapon.py             # Weapon items
+    │   ├── armor.py              # Armor items
+    │   ├── consumable.py         # Consumables
+    │   ├── inventory.py          # Inventory system
+    │   ├── equipment.py          # Equipment manager
+    │   └── README.md             # Items documentation
+    │
     ├── scenery/
     │   └── terrain.py            # Terrain elements
     │
@@ -185,6 +194,16 @@ All **base game** code and assets
 - **relationships.py**: Character relationship tracking
 - **Narrative hub**: Connects hero, enemy, villain, legendary
 
+#### `src/items/`
+**All items go here**
+- **item.py**: Base item class
+- **weapon.py**: Weapon items (swords, axes, bows)
+- **armor.py**: Armor and shields
+- **consumable.py**: Potions, food, buffs
+- **inventory.py**: Inventory management system
+- **equipment.py**: Equipment system
+- **Quest items**: Story-critical items (crystals, keys)
+
 #### `src/scenery/`
 - **terrain.py**: Terrain types (grass, trees, rocks, water)
 
@@ -221,6 +240,7 @@ All **base game** code and assets
 | `src/villain/` | Main antagonist and story elements |
 | `src/legendary/` | Legendary enemies and ultra-rare encounters |
 | `src/story/` | Dialogue, cutscenes, quests, and narrative |
+| `src/items/` | Items, weapons, armor, consumables, inventory |
 | `src/scenery/terrain.py` | World terrain types |
 | `src/world/world_generator.py` | Procedural generation |
 
@@ -261,6 +281,7 @@ All **base game** code and assets
   - **villain/**: Main antagonist and story
   - **legendary/**: Legendary enemies and rare encounters
   - **story/**: Dialogue, cutscenes, and narrative
+  - **items/**: Items, weapons, armor, inventory
   - **scenery/**: Environment and terrain
   - **world/**: World generation
   - **engine/**: Game engines
@@ -344,6 +365,7 @@ __pycache__/        # Python cache
 - [ ] `src/villain/` - Add main villain and story
 - [ ] `src/legendary/` - Add legendary encounters and items
 - [ ] `src/story/` - Add dialogue, cutscenes, and quests
+- [ ] `src/items/` - Add items, weapons, armor, inventory
 - [ ] `src/assets/tiles/` - Add PNG tiles
 - [ ] `src/assets/sprites/` - Add character sprites
 - [ ] `src/sound/sfx/` - Add sound effects
@@ -377,9 +399,13 @@ __pycache__/        # Python cache
    - Add dialogue system
    - Create cutscenes (prologue, ending)
    - Add main quest line
-6. Create basic tile assets
-7. Add sound effects
-8. Add items/inventory
+6. **Implement items** (src/items/)
+   - Create base Item class
+   - Add weapons and armor
+   - Create inventory system
+   - Add loot drops
+7. Create basic tile assets
+8. Add sound effects
 9. **Release base game on Steam**
 
 #### Phase 2: DLC Development (Post-Launch)

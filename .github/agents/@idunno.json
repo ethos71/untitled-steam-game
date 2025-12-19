@@ -32,6 +32,7 @@
       "villain": "src/villain",
       "legendary": "src/legendary",
       "story": "src/story",
+      "items": "src/items",
       "scenery": "src/scenery",
       "world": "src/world",
       "engine": "src/engine",

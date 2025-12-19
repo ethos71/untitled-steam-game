@@ -18,6 +18,11 @@ src/
 │   ├── story.py          # Story progression
 │   ├── dialogue.py       # Dialogue system
 │   └── cutscenes.py      # Cutscenes
+├── items/
+│   ├── item.py           # Base item class
+│   ├── weapon.py         # Weapons
+│   ├── inventory.py      # Inventory system
+│   └── equipment.py      # Equipment
 ├── scenery/
 │   └── terrain.py        # Terrain elements (trees, rocks, rivers)
 ├── world/
