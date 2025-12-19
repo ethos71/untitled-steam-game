@@ -1,0 +1,35 @@
+{
+  "app_id": "YOUR_STEAM_APP_ID",
+  "app_name": "Your Game Name",
+  "depots": {
+    "base": {
+      "depot_id": "YOUR_BASE_DEPOT_ID",
+      "content_root": "./build",
+      "local_path": "*",
+      "platforms": ["windows", "linux", "macos"]
+    }
+  },
+  "branches": {
+    "default": {
+      "build_description": "Public release build"
+    },
+    "beta": {
+      "password": "YOUR_BETA_PASSWORD",
+      "build_description": "Beta testing build"
+    }
+  },
+  "launch_options": {
+    "windows": {
+      "executable": "YourGame.exe",
+      "arguments": ""
+    },
+    "linux": {
+      "executable": "YourGame.x86_64",
+      "arguments": ""
+    },
+    "macos": {
+      "executable": "YourGame.app",
+      "arguments": ""
+    }
+  }
+}

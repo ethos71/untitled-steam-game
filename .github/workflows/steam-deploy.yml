@@ -1,0 +1,81 @@
+name: Steam Deploy
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Steam branch to deploy to'
+        required: true
+        default: 'beta'
+        type: choice
+        options:
+          - default
+          - beta
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup build environment
+        run: |
+          echo "Setting up build environment"
+          # Add your build tool setup here (e.g., Unity, Unreal, Godot, etc.)
+          
+      - name: Build game
+        run: |
+          echo "Building game for all platforms"
+          mkdir -p build/windows build/linux build/macos
+          # Add your actual build commands here
+          
+      - name: Setup SteamCMD
+        uses: CyberAndrii/setup-steamcmd@v1
+        
+      - name: Deploy to Steam
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+          STEAM_CONFIG_VDF: ${{ secrets.STEAM_CONFIG_VDF }}
+        run: |
+          # Create Steam VDF build script
+          BRANCH="${{ github.event.inputs.branch || 'default' }}"
+          
+          cat > app_build.vdf <<EOF
+          "AppBuild"
+          {
+            "AppID" "${{ secrets.STEAM_APP_ID }}"
+            "Desc" "Build from commit ${{ github.sha }}"
+            "BuildOutput" "./steam_output"
+            "ContentRoot" "./build"
+            "SetLive" "$BRANCH"
+            
+            "Depots"
+            {
+              "${{ secrets.STEAM_DEPOT_ID }}"
+              {
+                "FileMapping"
+                {
+                  "LocalPath" "*"
+                  "DepotPath" "."
+                  "Recursive" "1"
+                }
+              }
+            }
+          }
+          EOF
+          
+          # Upload to Steam
+          steamcmd +login "$STEAM_USERNAME" "$STEAM_PASSWORD" +run_app_build app_build.vdf +quit
+          
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: game-build
+          path: build/
+          retention-days: 30

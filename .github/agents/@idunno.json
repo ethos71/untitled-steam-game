@@ -1,0 +1,51 @@
+{
+  "name": "@idunno",
+  "description": "AI agent specialized in Steam game development tasks",
+  "version": "1.0.0",
+  "capabilities": [
+    "game design",
+    "gameplay mechanics",
+    "level design",
+    "asset management",
+    "performance optimization",
+    "Steam integration",
+    "playtesting feedback"
+  ],
+  "tools": [
+    "code_analysis",
+    "asset_pipeline",
+    "build_tools",
+    "testing_framework"
+  ],
+  "context": {
+    "project_type": "steam_game",
+    "engine": "Python + pygame (NES-style)",
+    "game_type": "NES-Style Roguelike",
+    "target_platforms": ["windows", "linux", "mac"],
+    "code_directory": "src",
+    "main_files": ["engine/game_nes.py", "engine/game_simple.py", "engine/main.py"],
+    "graphics_style": "16x16 pixel tiles, NES palette",
+    "code_structure": {
+      "hero": "src/hero",
+      "enemy": "src/enemy",
+      "boss": "src/boss",
+      "villain": "src/villain",
+      "legendary": "src/legendary",
+      "story": "src/story",
+      "scenery": "src/scenery",
+      "world": "src/world",
+      "engine": "src/engine",
+      "sound": "src/sound",
+      "dlc": "dlc"
+    },
+    "asset_structure": {
+      "tiles": "src/assets/tiles",
+      "sprites": "src/assets/sprites",
+      "sounds": "src/sound"
+    },
+    "monetization": {
+      "base_game": "Free or paid base game",
+      "dlc": "Extra paid content in dlc/ folder"
+    }
+  }
+}
