@@ -1,0 +1,24 @@
+{
+  "sources": {
+    "kenney_pixel_platformer": {
+      "url": "https://kenney.nl/content/3-assets/96/roguelikeindoortileset-1.0.zip",
+      "type": "sprites",
+      "description": "Kenney Roguelike Indoor Tileset"
+    },
+    "kenney_roguelike_characters": {
+      "url": "https://kenney.nl/content/3-assets/11/roguelikecharacterpack-1.1.zip",
+      "type": "sprites",
+      "description": "Kenney Roguelike Character Pack"
+    },
+    "pixelart_tileset": {
+      "url": "https://opengameart.org/sites/default/files/DungeonTilesetII_0.png",
+      "type": "tilesets",
+      "description": "Dungeon Tileset from OpenGameArt"
+    }
+  },
+  "attribution": [
+    "Kenney.nl - CC0 License (Public Domain)",
+    "OpenGameArt.org - Various CC licenses"
+  ],
+  "integration_notes": "All assets are free to use. Check individual licenses."
+}

@@ -21,28 +21,49 @@
     "project_type": "steam_game",
     "engine": "Python + pygame (NES-style)",
     "game_type": "NES-Style Roguelike",
+    "setting": "Post-apocalyptic shell world (Septerra Core meets Dante's Inferno)",
     "target_platforms": ["windows", "linux", "mac"],
     "code_directory": "src",
     "main_files": ["engine/game_nes.py", "engine/game_simple.py", "engine/main.py"],
     "graphics_style": "16x16 pixel tiles, NES palette",
+    "world_structure": {
+      "shells": 9,
+      "progression": "Vertical descent through shells to The Core",
+      "surface": "Monster-filled Mist covering old world ruins",
+      "time_since_apocalypse": "Unknown (10,000 - 1,000,000+ years)"
+    },
     "code_structure": {
-      "hero": "src/hero",
-      "enemy": "src/enemy",
-      "boss": "src/boss",
-      "villain": "src/villain",
-      "legendary": "src/legendary",
+      "characters": "src/characters",
+      "hero": "src/characters/hero",
+      "enemy": "src/characters/enemy",
+      "boss": "src/characters/boss",
+      "villain": "src/characters/villain",
+      "legendary": "src/characters/legendary",
       "story": "src/story",
-      "items": "src/items",
-      "scenery": "src/scenery",
-      "world": "src/world",
+      "environment": "src/environment",
+      "items": "src/environment/items",
+      "world": "src/environment/world",
+      "shells": "src/environment/shells",
+      "assets": "src/assets",
       "engine": "src/engine",
-      "sound": "src/sound",
-      "dlc": "dlc"
+      "dlc": "src/dlc",
+      "mods": "src/mods"
     },
     "asset_structure": {
+      "all_assets": "src/assets",
       "tiles": "src/assets/tiles",
       "sprites": "src/assets/sprites",
-      "sounds": "src/sound"
+      "tilesets": "src/assets/tilesets",
+      "terrain": "src/assets/terrain.py",
+      "sounds": "src/assets/sound",
+      "music": "src/assets/music",
+      "fonts": "src/assets/fonts"
+    },
+    "free_asset_resources": {
+      "sprites_tilesets": ["kenney.nl", "opengameart.org", "itch.io/game-assets", "openpixelproject.com"],
+      "sound_music": ["freesound.org", "incompetech.com", "opengameart.org/music", "zapsplat.com"],
+      "fonts": ["dafont.com/bitmap.php", "fonts.google.com/specimen/Press+Start+2P"],
+      "documentation": "docs/robots/free_asset_resources.md"
     },
     "monetization": {
       "base_game": "Free or paid base game",
