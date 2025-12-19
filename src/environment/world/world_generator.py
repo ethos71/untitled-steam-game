@@ -5,7 +5,7 @@ import os
 from collections import deque
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
-from assets.terrain import Tree, Rock, River, Grass
+from assets.terrain import Tree, Rock, River, Grass, Bridge
 from characters.hero.hero import Hero
 from characters.hero.equipment import Equipment, EquipmentSlot, EquipmentStats
 
@@ -35,15 +35,15 @@ class WorldGenerator:
         # Generate rocks (scattered)
         self._generate_rocks(density=0.05)
         
-        # Place hero at the center
-        hero_x = self.width // 2
-        hero_y = self.height // 2
+        # Ensure large landmasses (remove small islands)
+        self._remove_small_islands()
         
-        # Make sure hero isn't spawning on blocking terrain
-        if (hero_x, hero_y) in self.terrain:
-            if self.terrain[(hero_x, hero_y)].blocks_movement:
-                del self.terrain[(hero_x, hero_y)]
-                
+        # Generate bridges to connect isolated landmasses
+        self._generate_bridges()
+        
+        # Find a safe spawn location for the hero
+        hero_x, hero_y = self._find_safe_spawn_location()
+        
         self.hero = Hero(hero_x, hero_y)
         
         # Generate treasure chests (always accessible)
@@ -140,6 +140,47 @@ class WorldGenerator:
         
         terrain = self.terrain.get((x, y))
         return terrain is None or not terrain.blocks_movement
+    
+    def _find_safe_spawn_location(self):
+        """Find a safe spawn location with walkable tiles around it."""
+        # Try center first
+        center_x = self.width // 2
+        center_y = self.height // 2
+        
+        if self._is_safe_spawn(center_x, center_y):
+            return center_x, center_y
+        
+        # Try positions in expanding radius from center
+        for radius in range(1, min(self.width, self.height) // 2):
+            for dx in range(-radius, radius + 1):
+                for dy in range(-radius, radius + 1):
+                    if abs(dx) == radius or abs(dy) == radius:
+                        x = center_x + dx
+                        y = center_y + dy
+                        if 0 <= x < self.width and 0 <= y < self.height:
+                            if self._is_safe_spawn(x, y):
+                                return x, y
+        
+        # Fallback: force clear a safe area at center
+        self._clear_safe_area(center_x, center_y)
+        return center_x, center_y
+    
+    def _is_safe_spawn(self, x, y):
+        """Check if position has at least 3x3 walkable area."""
+        for dy in range(-1, 2):
+            for dx in range(-1, 2):
+                check_x, check_y = x + dx, y + dy
+                if not self.is_walkable(check_x, check_y):
+                    return False
+        return True
+    
+    def _clear_safe_area(self, x, y):
+        """Force clear a 3x3 walkable area around position."""
+        for dy in range(-1, 2):
+            for dx in range(-1, 2):
+                pos_x, pos_y = x + dx, y + dy
+                if 0 <= pos_x < self.width and 0 <= pos_y < self.height:
+                    self.terrain[(pos_x, pos_y)] = Grass(pos_x, pos_y)
     
     def _generate_chests(self, num_chests=1):
         """Generate treasure chests that are always accessible from hero position."""
@@ -251,6 +292,118 @@ class WorldGenerator:
         ]
         
         return random.choice(items)
+    
+    def _remove_small_islands(self, min_size=20):
+        """Remove small landmasses by flooding them with water."""
+        # Find all landmasses using flood fill
+        visited = set()
+        landmasses = []
+        
+        for y in range(self.height):
+            for x in range(self.width):
+                if (x, y) not in visited and self.is_walkable(x, y):
+                    # Flood fill to find this landmass
+                    landmass = self._flood_fill_landmass(x, y, visited)
+                    if landmass:
+                        landmasses.append(landmass)
+        
+        # Convert small landmasses to water
+        for landmass in landmasses:
+            if len(landmass) < min_size:
+                for x, y in landmass:
+                    self.terrain[(x, y)] = River(x, y)
+    
+    def _flood_fill_landmass(self, start_x, start_y, visited):
+        """Flood fill to find all connected walkable tiles."""
+        landmass = []
+        queue = deque([(start_x, start_y)])
+        visited.add((start_x, start_y))
+        
+        while queue:
+            x, y = queue.popleft()
+            landmass.append((x, y))
+            
+            # Check all adjacent positions
+            for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                new_x, new_y = x + dx, y + dy
+                
+                if (new_x, new_y) not in visited:
+                    if 0 <= new_x < self.width and 0 <= new_y < self.height:
+                        if self.is_walkable(new_x, new_y):
+                            visited.add((new_x, new_y))
+                            queue.append((new_x, new_y))
+        
+        return landmass
+    
+    def _generate_bridges(self):
+        """Generate bridges to connect isolated landmasses."""
+        # Find all landmasses
+        visited = set()
+        landmasses = []
+        
+        for y in range(self.height):
+            for x in range(self.width):
+                if (x, y) not in visited and self.is_walkable(x, y):
+                    landmass = self._flood_fill_landmass(x, y, visited)
+                    if landmass:
+                        landmasses.append(landmass)
+        
+        # If we have multiple landmasses, connect them
+        if len(landmasses) > 1:
+            # Sort by size (largest first)
+            landmasses.sort(key=len, reverse=True)
+            main_landmass = landmasses[0]
+            
+            # Connect each smaller landmass to the main one
+            for i in range(1, len(landmasses)):
+                self._build_bridge_between(main_landmass, landmasses[i])
+    
+    def _build_bridge_between(self, landmass1, landmass2):
+        """Build a bridge between two landmasses."""
+        # Find closest points between the two landmasses
+        min_distance = float('inf')
+        best_pair = None
+        
+        # Sample points to avoid checking every combination
+        sample_size = min(50, len(landmass1), len(landmass2))
+        sample1 = random.sample(landmass1, min(sample_size, len(landmass1)))
+        sample2 = random.sample(landmass2, min(sample_size, len(landmass2)))
+        
+        for x1, y1 in sample1:
+            for x2, y2 in sample2:
+                distance = abs(x2 - x1) + abs(y2 - y1)
+                if distance < min_distance:
+                    min_distance = distance
+                    best_pair = ((x1, y1), (x2, y2))
+        
+        if best_pair and min_distance < 30:  # Only bridge if not too far
+            start, end = best_pair
+            self._build_straight_bridge(start[0], start[1], end[0], end[1])
+    
+    def _build_straight_bridge(self, x1, y1, x2, y2):
+        """Build a straight bridge between two points."""
+        # Use A* style pathfinding to build bridge
+        current_x, current_y = x1, y1
+        
+        while current_x != x2 or current_y != y2:
+            # Move towards target
+            if current_x < x2:
+                current_x += 1
+            elif current_x > x2:
+                current_x -= 1
+            elif current_y < y2:
+                current_y += 1
+            elif current_y > y2:
+                current_y -= 1
+            
+            # Place bridge if over water, otherwise use grass
+            if 0 <= current_x < self.width and 0 <= current_y < self.height:
+                terrain = self.terrain.get((current_x, current_y))
+                if isinstance(terrain, River):
+                    self.terrain[(current_x, current_y)] = Bridge(current_x, current_y)
+                elif not self.is_walkable(current_x, current_y):
+                    # Clear obstacles
+                    self.terrain[(current_x, current_y)] = Grass(current_x, current_y)
 
 
 def main():

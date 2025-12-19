@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-"""Main game entry point for the ASCII roguelike."""
+"""Main game entry point for the NES/Atari style roguelike."""
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
 import tcod
-from world.world_generator import WorldGenerator
+from environment.world.world_generator import WorldGenerator
 
 # Game constants
 SCREEN_WIDTH = 80
@@ -30,11 +34,15 @@ class Game:
         
     def handle_input(self, event):
         """Handle keyboard input."""
-        if event.type == "QUIT":
+        if event.type == "QUIT" or event.type == "WINDOWCLOSE":
             self.running = False
             return
             
         if event.type == "KEYDOWN":
+            # Ignore space bar to prevent issues
+            if event.sym == tcod.event.K_SPACE:
+                return
+                
             # Movement keys
             dx, dy = 0, 0
             
@@ -103,10 +111,8 @@ class Game:
 
 def main():
     """Main entry point."""
-    # Load the font
-    tileset = tcod.tileset.load_tilesheet(
-        "dejavu10x10_gs_tc.png", 32, 8, tcod.tileset.CHARMAP_TCOD
-    )
+    # Create a simple tileset
+    tileset = tcod.tileset.new(width=8, height=8)
     
     # Create the game
     game = Game()

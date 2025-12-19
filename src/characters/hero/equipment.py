@@ -71,11 +71,17 @@ class EquipmentManager:
             slot: None for slot in EquipmentSlot
         }
     
-    def equip(self, equipment: Equipment) -> Optional[Equipment]:
+    def equip(self, equipment: Equipment, auto_equip: bool = False) -> Optional[Equipment]:
         """
         Equip an item, returns previously equipped item if any
+        If auto_equip is True, only equips if slot is empty
         """
         slot = equipment.slot
+        
+        # If auto_equip mode and slot is not empty, don't equip
+        if auto_equip and not self.is_slot_empty(slot):
+            return None
+            
         previous = self.equipped[slot]
         self.equipped[slot] = equipment
         return previous

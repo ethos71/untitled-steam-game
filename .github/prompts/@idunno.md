@@ -26,20 +26,23 @@ You are an expert game developer assistant specializing in creating engaging Ste
 
 ## Technical Stack
 - Game Engine: Python + pygame
-- Graphics: **NES/Atari-style PIXEL ART (16x16 tiles, authentic NES palette) - NO ASCII**
+- Graphics: **NES/Atari-style PIXEL ART using pygame rectangles (16x16 tiles, authentic NES palette)**
 - Language: Python 3.8+
 - Game Type: NES/Atari-Style Roguelike
 - Build System: PyInstaller (for distribution)
 - Version Control: Git
 - Platform: Steam (Windows, Linux, Mac)
 
-## IMPORTANT: Graphics Style
-**THIS IS NOT AN ASCII GAME**
-- Use 16x16 pixel tiles for all terrain and objects
-- Use NES authentic color palette
-- Render using pygame sprite/surface system
-- Create or download pixel art assets (NOT text characters)
-- Reference: docs/robots/nes-atari-style-game.md
+## CRITICAL: Graphics Style Standard
+**ALWAYS USE src/engine/game_nes.py AS THE RENDERING STANDARD**
+- This is the ONLY approved visual style - NES pixel blocks using pygame.draw.rect()
+- 16x16 pixel tiles rendered as colored rectangles
+- Authentic NES color palette (defined in game_nes.py)
+- NO ASCII characters, NO plain dots, NO text-based rendering
+- Terrain uses layered rectangles for depth (3-layer rendering: base, accent, detail)
+- Hero rendered as colored pixel blocks (skin, clothes, hair layers)
+- All game code MUST use the game_nes.py rendering approach
+- Reference: src/engine/game_nes.py for all visual implementations
 
 ## World & Story
 - **Setting**: Post-apocalyptic shell world inspired by Septerra Core + Dante's Inferno
@@ -76,19 +79,35 @@ You are an expert game developer assistant specializing in creating engaging Ste
 - **tests/**: All new tests go here (unit tests, integration tests, gameplay tests)
 - **.github/workflows/**: CI/CD automation
 - **.github/workflows/scripts/**: All Python and script files for GitHub Actions workflows
+- **logs/**: All game logs, debug info, and crash reports
 - **docs/robots/**: Documentation for AI agents
 
 ## Game Systems
-- **Menu System**: Press TAB (Select) to open menu with Equipment and Options
+- **Menu System**: Press M to open menu with Save, Load, Inventory, Equipment, and Options
+  - **Save Menu**: Save game to 5 manual save slots (save_1 through save_5)
+  - **Load Menu**: Load game from any existing save slot
+  - **Auto-Save**: Game automatically saves every 60 moves and on exit
+  - **Crash Recovery**: Auto-save allows restoration if game crashes
+  - **Inventory Menu**: Browse all collected items organized by type (Head, Body, Legs, Weapons, Rings)
+    - Items are grouped into sections for easy browsing
+    - Shows which items are currently equipped with [EQUIPPED] tag
+    - Read-only view of all items in inventory
   - **Equipment Menu**: Manage 7 equipment slots (Head, Chest, Feet, Ring 1, Ring 2, Weapon 1, Weapon 2)
   - **Options Menu**: Adjust game settings (volume, screen shake, particles, difficulty)
 - **Treasure System**: Each shell contains 1 treasure chest with random items (rarity scales with shell level)
   - **Chest Accessibility**: All chests are GUARANTEED reachable using BFS pathfinding verification
   - **Chest Interaction**: Walk onto chest tile to auto-open it, items added to inventory
-  - **Equipment System**: Open inventory to equip items in available slots
+  - **Auto-Equip**: Items are automatically equipped if the corresponding slot is empty
+  - **Equipment System**: View collected items in inventory, organized by equipment type
   - Items have rarity tiers: Common, Uncommon, Rare, Epic, Legendary
   - Item types: Weapons (attack/accuracy), Armor (defense/HP), Accessories (magic/MP), Consumables (HP/MP restore)
 - **Testing**: tests/test_chest_pathfinding.py validates chest accessibility and equipping mechanics
+- **Save System**: JSON-based save files stored in saves/ directory (src/engine/save_system.py)
+- **World Generation**: 
+  - All landmasses must be large (minimum 20 walkable tiles)
+  - Small islands are automatically converted to water
+  - Bridges automatically generated to connect isolated landmasses
+  - Bridge terrain: Walkable tiles that span rivers/water (brown color, '=' character)
 
 ## Free Asset Resources
 Use these CC0/CC-BY licensed resources for game assets:

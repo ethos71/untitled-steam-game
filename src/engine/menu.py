@@ -14,6 +14,7 @@ class MenuState(Enum):
     CLOSED = "closed"
     MAIN = "main"
     EQUIPMENT = "equipment"
+    INVENTORY = "inventory"
     OPTIONS = "options"
 
 
@@ -63,6 +64,9 @@ class MenuSystem:
             EquipSlot.WEAPON_2: None,
         }
         
+        # Inventory - stores all collected items
+        self.inventory = []
+        
         # Options
         self.options = {
             "volume": 50,
@@ -75,6 +79,7 @@ class MenuSystem:
         # Current menus
         self.main_menu_items = []
         self.equipment_menu_items = []
+        self.inventory_menu_items = []
         self.options_menu_items = []
         
         self._build_menus()
@@ -82,6 +87,7 @@ class MenuSystem:
     def _build_menus(self):
         """Build all menu structures"""
         self.main_menu_items = [
+            MenuItem("Inventory", self._open_inventory),
             MenuItem("Equipment", self._open_equipment),
             MenuItem("Options", self._open_options),
             MenuItem("Resume", self.close),
@@ -93,6 +99,15 @@ class MenuSystem:
             for slot in EquipSlot
         ]
         self.equipment_menu_items.append(MenuItem("Back", self._open_main))
+        
+        # Build inventory menu grouped by slot type
+        self.inventory_menu_items = []
+        self._add_inventory_section("HEAD", EquipSlot.HEAD)
+        self._add_inventory_section("BODY", EquipSlot.CHEST)
+        self._add_inventory_section("LEGS", EquipSlot.FEET)
+        self._add_inventory_section("WEAPONS", [EquipSlot.WEAPON_1, EquipSlot.WEAPON_2])
+        self._add_inventory_section("RINGS", [EquipSlot.RING_1, EquipSlot.RING_2])
+        self.inventory_menu_items.append(MenuItem("Back", self._open_main))
         
         self.options_menu_items = [
             MenuItem(f"Music Volume: {self.options['volume']}", self._adjust_volume),
@@ -109,6 +124,48 @@ class MenuSystem:
         """Get name of equipped item or 'Empty'"""
         item = self.equipment_slots[slot]
         return item.name if item else "Empty"
+    
+    def _add_inventory_section(self, section_name: str, slots):
+        """Add inventory section with items"""
+        # Add section header (not selectable, just for display)
+        self.inventory_menu_items.append(MenuItem(f"=== {section_name} ===", lambda: None, enabled=False))
+        
+        # Normalize slots to list
+        if not isinstance(slots, list):
+            slots = [slots]
+        
+        # Get items for these slots from inventory
+        section_items = [item for item in self.inventory if self._item_fits_slot(item, slots)]
+        
+        if not section_items:
+            self.inventory_menu_items.append(MenuItem("  (No items)", lambda: None, enabled=False))
+        else:
+            for item in section_items:
+                # Check if item is equipped
+                is_equipped = any(self.equipment_slots[slot] == item for slot in slots)
+                equipped_text = " [EQUIPPED]" if is_equipped else ""
+                self.inventory_menu_items.append(
+                    MenuItem(f"  {item.name}{equipped_text}", lambda: None, enabled=False)
+                )
+    
+    def _item_fits_slot(self, item, slots):
+        """Check if item fits in any of the given slots"""
+        if not hasattr(item, 'slot_type'):
+            return False
+        return item.slot_type in slots
+    
+    def add_to_inventory(self, item):
+        """Add item to inventory"""
+        self.inventory.append(item)
+        
+        # Auto-equip if slot is empty
+        if hasattr(item, 'slot_type'):
+            slot = item.slot_type
+            if self.equipment_slots.get(slot) is None:
+                self.equipment_slots[slot] = item
+                print(f"Auto-equipped {item.name} to {slot.value}")
+        
+        self._build_menus()
     
     def open(self):
         """Open main menu"""
@@ -134,6 +191,12 @@ class MenuSystem:
         self.state = MenuState.EQUIPMENT
         self.selected_index = 0
         self._build_menus()  # Rebuild to update equipment display
+    
+    def _open_inventory(self):
+        """Open inventory menu"""
+        self.state = MenuState.INVENTORY
+        self.selected_index = 0
+        self._build_menus()  # Rebuild to update inventory display
     
     def _open_options(self):
         """Open options menu"""
@@ -193,6 +256,8 @@ class MenuSystem:
             return self.main_menu_items
         elif self.state == MenuState.EQUIPMENT:
             return self.equipment_menu_items
+        elif self.state == MenuState.INVENTORY:
+            return self.inventory_menu_items
         elif self.state == MenuState.OPTIONS:
             return self.options_menu_items
         return []
@@ -201,7 +266,14 @@ class MenuSystem:
         """Move menu selection"""
         menu = self._get_current_menu()
         if menu:
-            self.selected_index = (self.selected_index + direction) % len(menu)
+            # Skip disabled items
+            new_index = (self.selected_index + direction) % len(menu)
+            attempts = 0
+            while not menu[new_index].enabled and attempts < len(menu):
+                new_index = (new_index + direction) % len(menu)
+                attempts += 1
+            if menu[new_index].enabled:
+                self.selected_index = new_index
     
     def _activate_selected(self):
         """Activate selected menu item"""
@@ -266,6 +338,8 @@ class MenuSystem:
             return "MENU"
         elif self.state == MenuState.EQUIPMENT:
             return "EQUIPMENT"
+        elif self.state == MenuState.INVENTORY:
+            return "INVENTORY"
         elif self.state == MenuState.OPTIONS:
             return "OPTIONS"
         return ""

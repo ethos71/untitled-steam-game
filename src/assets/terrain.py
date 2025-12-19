@@ -52,3 +52,13 @@ class Grass(Terrain):
         color = (50, 205, 50)  # Lime green
         super().__init__(x, y, char, color, blocks_movement=False, blocks_sight=False)
         self.name = "grass"
+
+class Bridge(Terrain):
+    """Bridge tile that allows crossing water."""
+    
+    def __init__(self, x, y):
+        bridge_chars = ['=', '≡', '▬']
+        char = random.choice(bridge_chars)
+        color = (139, 69, 19)  # Brown
+        super().__init__(x, y, char, color, blocks_movement=False, blocks_sight=False)
+        self.name = "bridge"

@@ -3,11 +3,29 @@
 import pygame
 import sys
 import os
+import logging
+import traceback
+from datetime import datetime
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from environment.world.world_generator import WorldGenerator
 from environment.items.treasure import place_treasure_chest
 from engine.menu import MenuSystem
+
+# Setup logging
+LOG_DIR = os.path.join(os.path.dirname(__file__), '..', '..', 'logs')
+os.makedirs(LOG_DIR, exist_ok=True)
+log_file = os.path.join(LOG_DIR, f'game_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(log_file),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
 
 # NES-inspired constants
 TILE_SIZE = 16  # 16x16 tiles
@@ -259,41 +277,49 @@ class NESGame:
     """Main NES-style game class."""
     
     def __init__(self):
-        pygame.init()
-        pygame.display.set_caption("NES Roguelike Adventure")
-        
-        self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        self.clock = pygame.time.Clock()
-        self.running = True
-        
-        # Create renderer
-        self.renderer = NESRenderer(TILE_SIZE)
-        
-        # Generate world
-        self.generator = WorldGenerator(width=MAP_WIDTH, height=MAP_HEIGHT)
-        self.terrain, self.hero = self.generator.generate()
-        
-        # Place treasure chest
-        self.treasure_chests = []
-        occupied = set(self.terrain.keys())
-        occupied.add((self.hero.x, self.hero.y))
-        chest = place_treasure_chest(MAP_WIDTH, MAP_HEIGHT, occupied, shell_level=1)
-        if chest:
-            self.treasure_chests.append(chest)
-        
-        # Camera system
-        self.camera = Camera(SCREEN_WIDTH, SCREEN_HEIGHT, MAP_WIDTH, MAP_HEIGHT)
-        self.camera.update(self.hero.x, self.hero.y)
-        
-        # Menu system
-        self.menu = MenuSystem(SCREEN_WIDTH, SCREEN_HEIGHT)
-        self.font = pygame.font.Font(None, 28)
-        
-        # Settings
-        self.crt_effect = True
-        self.show_fps = True
-        self.message = ""
-        self.message_timer = 0
+        logger.info("Initializing NES game...")
+        try:
+            pygame.init()
+            pygame.display.set_caption("NES Roguelike Adventure")
+            
+            self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+            self.clock = pygame.time.Clock()
+            self.running = True
+            
+            # Create renderer
+            logger.debug("Creating NES renderer...")
+            self.renderer = NESRenderer(TILE_SIZE)
+            
+            # Generate world
+            logger.debug("Generating world...")
+            self.generator = WorldGenerator(width=MAP_WIDTH, height=MAP_HEIGHT)
+            self.terrain, self.hero = self.generator.generate()
+            logger.info(f"World generated - Hero at ({self.hero.x}, {self.hero.y})")
+            
+            # Get chests from generator (they're already guaranteed accessible)
+            self.treasure_chests = self.generator.chests
+            logger.info(f"Generated {len(self.treasure_chests)} treasure chests")
+            
+            # Camera system
+            self.camera = Camera(SCREEN_WIDTH, SCREEN_HEIGHT, MAP_WIDTH, MAP_HEIGHT)
+            self.camera.update(self.hero.x, self.hero.y)
+            
+            # Menu system
+            logger.debug("Initializing menu system...")
+            self.menu = MenuSystem(SCREEN_WIDTH, SCREEN_HEIGHT)
+            self.font = pygame.font.Font(None, 28)
+            
+            # Settings
+            self.crt_effect = True
+            self.show_fps = True
+            self.message = ""
+            self.message_timer = 0
+            
+            logger.info("Game initialization complete!")
+        except Exception as e:
+            logger.error(f"Failed to initialize game: {e}")
+            logger.error(traceback.format_exc())
+            raise
     
     def handle_input(self):
         """Handle keyboard input."""
@@ -341,13 +367,8 @@ class NESGame:
                 elif event.key == pygame.K_r:
                     # Regenerate world
                     self.terrain, self.hero = self.generator.generate()
-                    # Regenerate treasure
-                    self.treasure_chests.clear()
-                    occupied = set(self.terrain.keys())
-                    occupied.add((self.hero.x, self.hero.y))
-                    chest = place_treasure_chest(MAP_WIDTH, MAP_HEIGHT, occupied, shell_level=1)
-                    if chest:
-                        self.treasure_chests.append(chest)
+                    # Get new chests from generator
+                    self.treasure_chests = self.generator.chests
                     self.camera.update(self.hero.x, self.hero.y)
                 elif event.key == pygame.K_c:
                     # Toggle CRT effect
@@ -358,13 +379,14 @@ class NESGame:
                 
                 # Try to move hero
                 if dx != 0 or dy != 0:
+                    logger.debug(f"Attempting to move hero by ({dx}, {dy})")
                     new_x = self.hero.x + dx
                     new_y = self.hero.y + dy
                     
                     # Check if chest is at target position
                     chest_blocking = False
                     for chest in self.treasure_chests:
-                        if chest.x == new_x and chest.y == new_y and not chest.opened:
+                        if chest['x'] == new_x and chest['y'] == new_y and not chest['opened']:
                             chest_blocking = True
                             break
                     
@@ -374,6 +396,7 @@ class NESGame:
     
     def _try_open_chest(self):
         """Try to open a chest near the hero."""
+        logger.debug(f"Attempting to open chest near hero at ({self.hero.x}, {self.hero.y})")
         # Check adjacent tiles
         for dx in [-1, 0, 1]:
             for dy in [-1, 0, 1]:
@@ -381,17 +404,22 @@ class NESGame:
                 check_y = self.hero.y + dy
                 
                 for chest in self.treasure_chests:
-                    if chest.x == check_x and chest.y == check_y and not chest.opened:
-                        item = chest.open()
+                    if chest['x'] == check_x and chest['y'] == check_y and not chest['opened']:
+                        logger.info(f"Opening chest at ({check_x}, {check_y})")
+                        chest['opened'] = True
+                        item = chest['item']
+                        self.hero.inventory.append(item)
+                        # Add to menu inventory system
+                        self.menu.add_to_inventory(item)
                         if item:
                             self.message = f"Found: {item.name}!"
                             self.message_timer = 180  # 3 seconds at 60 FPS
+                            logger.info(f"Treasure found: {item.name} ({item.slot.value})")
                             print(f"\n{'='*50}")
                             print(f"TREASURE FOUND!")
                             print(f"{'='*50}")
                             print(f"Item: {item.name}")
-                            print(f"Type: {item.type.value}")
-                            print(f"Rarity: {item.rarity.value}")
+                            print(f"Slot: {item.slot.value}")
                             print(f"Stats: {item.stats}")
                             print(f"{'='*50}\n")
                         return
@@ -419,9 +447,9 @@ class NESGame:
         
         # Render treasure chests
         for chest in self.treasure_chests:
-            chest_x, chest_y = self.camera.apply(chest.x, chest.y)
+            chest_x, chest_y = self.camera.apply(chest['x'], chest['y'])
             if -TILE_SIZE < chest_x < SCREEN_WIDTH and -TILE_SIZE < chest_y < SCREEN_HEIGHT:
-                chest_tile = self.renderer.get_tile('chest_open' if chest.opened else 'chest')
+                chest_tile = self.renderer.get_tile('chest_open' if chest['opened'] else 'chest')
                 self.screen.blit(chest_tile, (chest_x, chest_y))
         
         # Render hero
@@ -522,6 +550,7 @@ class NESGame:
     
     def run(self):
         """Main game loop."""
+        logger.info("Starting main game loop")
         print("=" * 50)
         print("NES-STYLE ROGUELIKE")
         print("=" * 50)
@@ -537,21 +566,43 @@ class NESGame:
         print("\nStarting game...")
         print("=" * 50 + "\n")
         
-        while self.running:
-            self.handle_input()
-            self.update()
-            self.render()
-            self.clock.tick(FPS)
-        
-        print("\nThanks for playing!")
-        pygame.quit()
-        sys.exit()
+        try:
+            while self.running:
+                self.handle_input()
+                self.update()
+                self.render()
+                self.clock.tick(FPS)
+        except Exception as e:
+            logger.error(f"Game loop crashed: {e}")
+            logger.error(traceback.format_exc())
+            # Write crash report
+            crash_file = os.path.join(LOG_DIR, f'crash_{datetime.now().strftime("%Y%m%d_%H%M%S")}.txt')
+            with open(crash_file, 'w') as f:
+                f.write(f"Game Crash Report\n")
+                f.write(f"{'='*50}\n")
+                f.write(f"Time: {datetime.now()}\n")
+                f.write(f"Error: {e}\n\n")
+                f.write(f"Traceback:\n")
+                f.write(traceback.format_exc())
+            logger.error(f"Crash report written to {crash_file}")
+            print(f"\nGame crashed! Error logged to: {crash_file}")
+            raise
+        finally:
+            logger.info("Game loop ended")
+            print("\nThanks for playing!")
+            pygame.quit()
 
 
 def main():
     """Entry point."""
-    game = NESGame()
-    game.run()
+    try:
+        logger.info("Starting game...")
+        game = NESGame()
+        game.run()
+    except Exception as e:
+        logger.critical(f"Fatal error: {e}")
+        logger.critical(traceback.format_exc())
+        sys.exit(1)
 
 
 if __name__ == "__main__":
