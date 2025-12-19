@@ -52,16 +52,16 @@ You are an expert game developer assistant specializing in creating engaging Ste
 
 ## Project Structure
 - **src/**: All new source code goes here (base game)
-- **src/engine/**: Game engine implementations
+- **src/engine/**: Game engine implementations and menu system
 - **src/characters/**: All character-related code
-- **src/characters/hero/**: Player character code and equipment system
+- **src/characters/hero/**: Player character code and equipment system (7 slots: head, chest, feet, 2 rings, 2 weapons)
 - **src/characters/enemy/**: Enemy characters and AI
 - **src/characters/boss/**: Boss enemies and multi-phase battles
 - **src/characters/villain/**: Main villain/antagonist and story elements
 - **src/characters/legendary/**: Legendary enemies, items, and encounters
 - **src/story/**: Story content, dialogue, cutscenes, and narrative
 - **src/environment/**: World environment systems
-- **src/environment/items/**: All items, weapons, consumables, and inventory
+- **src/environment/items/**: All items, weapons, consumables, inventory, and treasure chests
 - **src/environment/world/**: World generation
 - **src/environment/shells/**: Shell level system - world layers descending toward the core (Dante's Inferno style)
 - **src/assets/**: All game assets (tiles, sprites, terrain, scenery, sound, music)
@@ -73,8 +73,22 @@ You are an expert game developer assistant specializing in creating engaging Ste
 - **src/assets/fonts/**: NES-style pixel fonts
 - **src/dlc/**: Extra paid content (DLC expansions)
 - **src/mods/**: Community modifications and Steam Workshop content
+- **tests/**: All new tests go here (unit tests, integration tests, gameplay tests)
 - **.github/workflows/**: CI/CD automation
+- **.github/workflows/scripts/**: All Python and script files for GitHub Actions workflows
 - **docs/robots/**: Documentation for AI agents
+
+## Game Systems
+- **Menu System**: Press TAB (Select) to open menu with Equipment and Options
+  - **Equipment Menu**: Manage 7 equipment slots (Head, Chest, Feet, Ring 1, Ring 2, Weapon 1, Weapon 2)
+  - **Options Menu**: Adjust game settings (volume, screen shake, particles, difficulty)
+- **Treasure System**: Each shell contains 1 treasure chest with random items (rarity scales with shell level)
+  - **Chest Accessibility**: All chests are GUARANTEED reachable using BFS pathfinding verification
+  - **Chest Interaction**: Walk onto chest tile to auto-open it, items added to inventory
+  - **Equipment System**: Open inventory to equip items in available slots
+  - Items have rarity tiers: Common, Uncommon, Rare, Epic, Legendary
+  - Item types: Weapons (attack/accuracy), Armor (defense/HP), Accessories (magic/MP), Consumables (HP/MP restore)
+- **Testing**: tests/test_chest_pathfinding.py validates chest accessibility and equipping mechanics
 
 ## Free Asset Resources
 Use these CC0/CC-BY licensed resources for game assets:

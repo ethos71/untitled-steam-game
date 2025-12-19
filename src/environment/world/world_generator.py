@@ -2,10 +2,12 @@
 import random
 import sys
 import os
+from collections import deque
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
 from assets.terrain import Tree, Rock, River, Grass
 from characters.hero.hero import Hero
+from characters.hero.equipment import Equipment, EquipmentSlot, EquipmentStats
 
 class WorldGenerator:
     """Generates a random world with terrain and a hero."""
@@ -15,6 +17,7 @@ class WorldGenerator:
         self.height = height
         self.terrain = {}
         self.hero = None
+        self.chests = []
         
     def generate(self):
         """Generate a complete world scene."""
@@ -42,6 +45,9 @@ class WorldGenerator:
                 del self.terrain[(hero_x, hero_y)]
                 
         self.hero = Hero(hero_x, hero_y)
+        
+        # Generate treasure chests (always accessible)
+        self._generate_chests(num_chests=1)
         
         return self.terrain, self.hero
     
@@ -134,6 +140,117 @@ class WorldGenerator:
         
         terrain = self.terrain.get((x, y))
         return terrain is None or not terrain.blocks_movement
+    
+    def _generate_chests(self, num_chests=1):
+        """Generate treasure chests that are always accessible from hero position."""
+        for _ in range(num_chests):
+            max_attempts = 100
+            chest_placed = False
+            
+            for attempt in range(max_attempts):
+                # Try to place chest in a random location
+                chest_x = random.randint(5, self.width - 5)
+                chest_y = random.randint(5, self.height - 5)
+                
+                # Check if location is walkable
+                if not self.is_walkable(chest_x, chest_y):
+                    continue
+                
+                # Check if chest is reachable from hero position using BFS
+                if self._is_reachable(self.hero.x, self.hero.y, chest_x, chest_y):
+                    # Generate random item for chest
+                    item = self._generate_random_item()
+                    chest = {
+                        'x': chest_x,
+                        'y': chest_y,
+                        'item': item,
+                        'opened': False
+                    }
+                    self.chests.append(chest)
+                    chest_placed = True
+                    break
+            
+            if not chest_placed:
+                # Fallback: place chest near hero if we couldn't find accessible spot
+                for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]:
+                    chest_x = self.hero.x + dx * 3
+                    chest_y = self.hero.y + dy * 3
+                    if self.is_walkable(chest_x, chest_y):
+                        item = self._generate_random_item()
+                        chest = {
+                            'x': chest_x,
+                            'y': chest_y,
+                            'item': item,
+                            'opened': False
+                        }
+                        self.chests.append(chest)
+                        break
+    
+    def _is_reachable(self, start_x, start_y, end_x, end_y):
+        """Check if end position is reachable from start using BFS pathfinding."""
+        if start_x == end_x and start_y == end_y:
+            return True
+        
+        visited = set()
+        queue = deque([(start_x, start_y)])
+        visited.add((start_x, start_y))
+        
+        while queue:
+            x, y = queue.popleft()
+            
+            # Check all adjacent positions
+            for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                new_x, new_y = x + dx, y + dy
+                
+                if new_x == end_x and new_y == end_y:
+                    return True
+                
+                if (new_x, new_y) not in visited and self.is_walkable(new_x, new_y):
+                    visited.add((new_x, new_y))
+                    queue.append((new_x, new_y))
+                
+                # Limit search to prevent infinite loops
+                if len(visited) > 1000:
+                    return False
+        
+        return False
+    
+    def _generate_random_item(self):
+        """Generate a random equipment item."""
+        items = [
+            Equipment(
+                name="Iron Helmet",
+                slot=EquipmentSlot.HEAD,
+                stats=EquipmentStats(defense=5, hp_bonus=10),
+                description="A sturdy iron helmet"
+            ),
+            Equipment(
+                name="Leather Armor",
+                slot=EquipmentSlot.BODY,
+                stats=EquipmentStats(defense=8, hp_bonus=15),
+                description="Well-crafted leather armor"
+            ),
+            Equipment(
+                name="Swift Boots",
+                slot=EquipmentSlot.FEET,
+                stats=EquipmentStats(speed=5, evasion=3),
+                description="Boots that increase movement speed"
+            ),
+            Equipment(
+                name="Ring of Strength",
+                slot=EquipmentSlot.ACCESSORY_1,
+                stats=EquipmentStats(attack=3, defense=2),
+                description="A ring that enhances strength"
+            ),
+            Equipment(
+                name="Iron Sword",
+                slot=EquipmentSlot.WEAPON,
+                stats=EquipmentStats(attack=10, accuracy=5),
+                description="A reliable iron blade"
+            ),
+        ]
+        
+        return random.choice(items)
 
 
 def main():

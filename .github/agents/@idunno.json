@@ -36,20 +36,31 @@
     },
     "code_structure": {
       "characters": "src/characters",
-      "hero": "src/characters/hero",
+      "hero": "src/characters/hero - Player character and 7-slot equipment system (head, chest, feet, 2 rings, 2 weapons)",
       "enemy": "src/characters/enemy",
       "boss": "src/characters/boss",
       "villain": "src/characters/villain",
       "legendary": "src/characters/legendary",
       "story": "src/story",
       "environment": "src/environment",
-      "items": "src/environment/items",
+      "items": "src/environment/items - Items, inventory, and treasure chests with rarity system",
       "world": "src/environment/world",
-      "shells": "src/environment/shells",
+      "shells": "src/environment/shells - 9 vertical world layers",
       "assets": "src/assets",
-      "engine": "src/engine",
+      "engine": "src/engine - Game engine and menu system",
       "dlc": "src/dlc",
-      "mods": "src/mods"
+      "mods": "src/mods",
+      "tests": "tests - All new tests for game mechanics",
+      "workflow_scripts": ".github/workflows/scripts - All Python and script files for GitHub Actions workflows"
+    },
+    "game_systems": {
+      "menu": "TAB key opens menu with Equipment and Options submenus",
+      "equipment_slots": ["Head", "Chest", "Feet", "Ring 1", "Ring 2", "Weapon 1", "Weapon 2"],
+      "treasure_chests": "Each shell has 1 treasure chest with random items - ALWAYS pathfinding-verified accessible from hero spawn",
+      "chest_mechanics": "Chests auto-open when hero walks on them, items go to inventory, hero can equip from inventory",
+      "chest_generation": "Uses BFS pathfinding to guarantee accessibility - no blocked chests",
+      "item_rarities": ["Common", "Uncommon", "Rare", "Epic", "Legendary"],
+      "item_types": ["Weapon", "Armor", "Accessory", "Consumable"]
     },
     "asset_structure": {
       "all_assets": "src/assets",

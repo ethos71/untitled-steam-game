@@ -2,9 +2,12 @@
 """NES-style roguelike game engine."""
 import pygame
 import sys
-sys.path.append('..')
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from world.world_generator import WorldGenerator
+from environment.world.world_generator import WorldGenerator
+from environment.items.treasure import place_treasure_chest
+from engine.menu import MenuSystem
 
 # NES-inspired constants
 TILE_SIZE = 16  # 16x16 tiles
@@ -153,6 +156,33 @@ class NESRenderer:
         pygame.draw.circle(hero, NES_COLORS['black'],
                          (ts//2 + 2, ts//3), 1)
         self.tile_cache['hero'] = hero
+        
+        # === TREASURE CHEST ===
+        chest = pygame.Surface((ts, ts))
+        chest.fill(NES_COLORS['grass'])
+        # Chest body
+        chest_color = (218, 165, 32)  # Gold
+        pygame.draw.rect(chest, chest_color,
+                        (ts//4, ts//2, ts//2, ts//2 - 2))
+        # Chest lid
+        pygame.draw.rect(chest, (180, 140, 20),
+                        (ts//4, ts//2 - 3, ts//2, 4))
+        # Lock
+        pygame.draw.circle(chest, NES_COLORS['black'],
+                          (ts//2, ts//2 + 3), 2)
+        self.tile_cache['chest'] = chest
+        
+        # Opened chest
+        chest_open = pygame.Surface((ts, ts))
+        chest_open.fill(NES_COLORS['grass'])
+        pygame.draw.rect(chest_open, chest_color,
+                        (ts//4, ts//2, ts//2, ts//2 - 2))
+        pygame.draw.rect(chest_open, (180, 140, 20),
+                        (ts//4, ts//3, ts//2, 3))
+        # Sparkle effect
+        pygame.draw.circle(chest_open, NES_COLORS['white'],
+                          (ts//2, ts//2 + 2), 3, 1)
+        self.tile_cache['chest_open'] = chest_open
     
     def get_tile(self, tile_type):
         """Get tile surface, handling animation."""
@@ -243,19 +273,38 @@ class NESGame:
         self.generator = WorldGenerator(width=MAP_WIDTH, height=MAP_HEIGHT)
         self.terrain, self.hero = self.generator.generate()
         
+        # Place treasure chest
+        self.treasure_chests = []
+        occupied = set(self.terrain.keys())
+        occupied.add((self.hero.x, self.hero.y))
+        chest = place_treasure_chest(MAP_WIDTH, MAP_HEIGHT, occupied, shell_level=1)
+        if chest:
+            self.treasure_chests.append(chest)
+        
         # Camera system
         self.camera = Camera(SCREEN_WIDTH, SCREEN_HEIGHT, MAP_WIDTH, MAP_HEIGHT)
         self.camera.update(self.hero.x, self.hero.y)
         
+        # Menu system
+        self.menu = MenuSystem(SCREEN_WIDTH, SCREEN_HEIGHT)
+        self.font = pygame.font.Font(None, 28)
+        
         # Settings
         self.crt_effect = True
         self.show_fps = True
+        self.message = ""
+        self.message_timer = 0
     
     def handle_input(self):
         """Handle keyboard input."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
+            
+            # Handle menu input first
+            if self.menu.is_open():
+                self.menu.handle_input(event)
+                continue
             
             if event.type == pygame.KEYDOWN:
                 dx, dy = 0, 0
@@ -283,9 +332,22 @@ class NESGame:
                 # Special keys
                 elif event.key == pygame.K_ESCAPE:
                     self.running = False
+                elif event.key == pygame.K_TAB:
+                    # Open menu (SELECT button)
+                    self.menu.open()
+                elif event.key == pygame.K_SPACE:
+                    # Interact with chest
+                    self._try_open_chest()
                 elif event.key == pygame.K_r:
                     # Regenerate world
                     self.terrain, self.hero = self.generator.generate()
+                    # Regenerate treasure
+                    self.treasure_chests.clear()
+                    occupied = set(self.terrain.keys())
+                    occupied.add((self.hero.x, self.hero.y))
+                    chest = place_treasure_chest(MAP_WIDTH, MAP_HEIGHT, occupied, shell_level=1)
+                    if chest:
+                        self.treasure_chests.append(chest)
                     self.camera.update(self.hero.x, self.hero.y)
                 elif event.key == pygame.K_c:
                     # Toggle CRT effect
@@ -299,9 +361,40 @@ class NESGame:
                     new_x = self.hero.x + dx
                     new_y = self.hero.y + dy
                     
-                    if self.generator.is_walkable(new_x, new_y):
+                    # Check if chest is at target position
+                    chest_blocking = False
+                    for chest in self.treasure_chests:
+                        if chest.x == new_x and chest.y == new_y and not chest.opened:
+                            chest_blocking = True
+                            break
+                    
+                    if not chest_blocking and self.generator.is_walkable(new_x, new_y):
                         self.hero.move(dx, dy)
                         self.camera.update(self.hero.x, self.hero.y)
+    
+    def _try_open_chest(self):
+        """Try to open a chest near the hero."""
+        # Check adjacent tiles
+        for dx in [-1, 0, 1]:
+            for dy in [-1, 0, 1]:
+                check_x = self.hero.x + dx
+                check_y = self.hero.y + dy
+                
+                for chest in self.treasure_chests:
+                    if chest.x == check_x and chest.y == check_y and not chest.opened:
+                        item = chest.open()
+                        if item:
+                            self.message = f"Found: {item.name}!"
+                            self.message_timer = 180  # 3 seconds at 60 FPS
+                            print(f"\n{'='*50}")
+                            print(f"TREASURE FOUND!")
+                            print(f"{'='*50}")
+                            print(f"Item: {item.name}")
+                            print(f"Type: {item.type.value}")
+                            print(f"Rarity: {item.rarity.value}")
+                            print(f"Stats: {item.stats}")
+                            print(f"{'='*50}\n")
+                        return
     
     def render(self):
         """Render the game world."""
@@ -324,6 +417,13 @@ class NESGame:
                         screen_x, screen_y = self.camera.apply(world_x, world_y)
                         self.screen.blit(tile, (screen_x, screen_y))
         
+        # Render treasure chests
+        for chest in self.treasure_chests:
+            chest_x, chest_y = self.camera.apply(chest.x, chest.y)
+            if -TILE_SIZE < chest_x < SCREEN_WIDTH and -TILE_SIZE < chest_y < SCREEN_HEIGHT:
+                chest_tile = self.renderer.get_tile('chest_open' if chest.opened else 'chest')
+                self.screen.blit(chest_tile, (chest_x, chest_y))
+        
         # Render hero
         hero_screen_x, hero_screen_y = self.camera.apply(self.hero.x, self.hero.y)
         hero_tile = self.renderer.get_tile('hero')
@@ -331,6 +431,10 @@ class NESGame:
         
         # Render UI
         self.render_ui()
+        
+        # Render menu on top
+        if self.menu.is_open():
+            self.menu.render(self.screen, self.font)
         
         # Apply CRT effects
         if self.crt_effect:
@@ -385,11 +489,22 @@ class NESGame:
         
         # Controls hint
         help_text = small_font.render(
-            "WASD:Move | R:Regen | C:CRT | F:FPS | ESC:Quit",
+            "WASD:Move | TAB:Menu | SPACE:Open | R:Regen | ESC:Quit",
             True,
             NES_COLORS['light_gray']
         )
         self.screen.blit(help_text, (10, SCREEN_HEIGHT - ui_height + 3))
+        
+        # Message display
+        if self.message_timer > 0:
+            msg_font = pygame.font.Font(None, 32)
+            msg_surf = msg_font.render(self.message, True, NES_COLORS['grass_light'])
+            msg_rect = msg_surf.get_rect(center=(SCREEN_WIDTH // 2, 40))
+            # Draw background
+            bg_rect = msg_rect.inflate(20, 10)
+            pygame.draw.rect(self.screen, NES_COLORS['black'], bg_rect)
+            pygame.draw.rect(self.screen, NES_COLORS['grass_light'], bg_rect, 2)
+            self.screen.blit(msg_surf, msg_rect)
         
         # FPS counter
         if self.show_fps:
@@ -400,6 +515,10 @@ class NESGame:
     def update(self):
         """Update game state."""
         self.renderer.update_animation()
+        
+        # Update message timer
+        if self.message_timer > 0:
+            self.message_timer -= 1
     
     def run(self):
         """Main game loop."""
@@ -409,6 +528,8 @@ class NESGame:
         print("\nControls:")
         print("  Movement: WASD, Arrow Keys, or hjkl (vi-style)")
         print("  Diagonal: yubn keys")
+        print("  Menu: TAB (Select button)")
+        print("  Open Chest: SPACE (when near chest)")
         print("  Regenerate World: R")
         print("  Toggle CRT Effect: C")
         print("  Toggle FPS: F")

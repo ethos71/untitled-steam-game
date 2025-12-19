@@ -40,6 +40,7 @@ class Game:
         self.generator = WorldGenerator(width=MAP_WIDTH, height=MAP_HEIGHT)
         self.terrain = {}
         self.hero = None
+        self.chests = []
         self.running = True
         self.camera_x = 0
         self.camera_y = 0
@@ -47,6 +48,7 @@ class Game:
     def initialize(self):
         """Initialize the game world."""
         self.terrain, self.hero = self.generator.generate()
+        self.chests = self.generator.chests
         self.update_camera()
         
     def handle_input(self):
@@ -71,6 +73,7 @@ class Game:
             if self.generator.is_walkable(new_x, new_y):
                 self.hero.move(dx, dy)
                 self.update_camera()
+                self._check_chest_interaction()
     
     def update_camera(self):
         """Center camera on hero."""
@@ -93,6 +96,15 @@ class Game:
                 screen_y = (y - self.camera_y) * TILE_SIZE
                 color = self._get_tile_color(tile.char)
                 pygame.draw.rect(self.screen, color, (screen_x, screen_y, TILE_SIZE, TILE_SIZE))
+        
+        # Render chests
+        for chest in self.chests:
+            if self.camera_x <= chest['x'] < self.camera_x + tiles_wide and \
+               self.camera_y <= chest['y'] < self.camera_y + tiles_high:
+                screen_x = (chest['x'] - self.camera_x) * TILE_SIZE
+                screen_y = (chest['y'] - self.camera_y) * TILE_SIZE
+                chest_color = (139, 69, 19) if not chest['opened'] else (100, 50, 10)
+                pygame.draw.rect(self.screen, chest_color, (screen_x + 2, screen_y + 2, TILE_SIZE - 4, TILE_SIZE - 4))
         
         # Render hero
         hero_screen_x = (self.hero.x - self.camera_x) * TILE_SIZE
@@ -127,6 +139,15 @@ class Game:
         self.screen.blit(hp_text, (10, ui_y + 10))
         self.screen.blit(pos_text, (10, ui_y + 40))
         self.screen.blit(help_text, (250, ui_y + 25))
+    
+    def _check_chest_interaction(self):
+        """Check if hero is on a chest and open it."""
+        for chest in self.chests:
+            if chest['x'] == self.hero.x and chest['y'] == self.hero.y and not chest['opened']:
+                chest['opened'] = True
+                item = chest['item']
+                self.hero.inventory.append(item)
+                print(f"Found {item.name}! Added to inventory.")
 
 
 def main():
