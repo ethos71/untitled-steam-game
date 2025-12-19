@@ -1,127 +1,160 @@
 #!/usr/bin/env python3
-"""Simplified game that doesn't require font files."""
-import tcod
-from world.world_generator import WorldGenerator
+"""NES/Atari style roguelike game."""
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+import pygame
+from environment.world.world_generator import WorldGenerator
 
 # Game constants
-SCREEN_WIDTH = 80
-SCREEN_HEIGHT = 50
-TITLE = "ASCII Roguelike"
+TILE_SIZE = 16
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+MAP_WIDTH = 50
+MAP_HEIGHT = 38
+FPS = 60
+TITLE = "Shell Descent - NES Roguelike"
+
+# NES Color Palette
+NES_PALETTE = {
+    'black': (0, 0, 0),
+    'grass': (0, 168, 0),
+    'tree': (0, 88, 0),
+    'rock': (124, 124, 124),
+    'water': (0, 120, 248),
+    'hero': (252, 160, 68),
+    'ui_bg': (24, 24, 24),
+    'ui_text': (248, 248, 248),
+}
 
 
 class Game:
     """Main game class."""
     
     def __init__(self):
-        self.screen_width = SCREEN_WIDTH
-        self.screen_height = SCREEN_HEIGHT
-        self.generator = WorldGenerator(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
+        pygame.init()
+        self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        pygame.display.set_caption(TITLE)
+        self.clock = pygame.time.Clock()
+        self.generator = WorldGenerator(width=MAP_WIDTH, height=MAP_HEIGHT)
         self.terrain = {}
         self.hero = None
         self.running = True
+        self.camera_x = 0
+        self.camera_y = 0
         
     def initialize(self):
         """Initialize the game world."""
         self.terrain, self.hero = self.generator.generate()
+        self.update_camera()
         
-    def handle_input(self, event):
+    def handle_input(self):
         """Handle keyboard input."""
-        if event.type == "QUIT":
-            self.running = False
-            return
+        keys = pygame.key.get_pressed()
+        dx, dy = 0, 0
+        
+        if keys[pygame.K_UP] or keys[pygame.K_w]:
+            dy = -1
+        if keys[pygame.K_DOWN] or keys[pygame.K_s]:
+            dy = 1
+        if keys[pygame.K_LEFT] or keys[pygame.K_a]:
+            dx = -1
+        if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
+            dx = 1
             
-        if event.type == "KEYDOWN":
-            # Movement keys
-            dx, dy = 0, 0
+        # Try to move the hero
+        if dx != 0 or dy != 0:
+            new_x = self.hero.x + dx
+            new_y = self.hero.y + dy
             
-            if event.sym == tcod.event.K_UP or event.sym == tcod.event.K_k:
-                dy = -1
-            elif event.sym == tcod.event.K_DOWN or event.sym == tcod.event.K_j:
-                dy = 1
-            elif event.sym == tcod.event.K_LEFT or event.sym == tcod.event.K_h:
-                dx = -1
-            elif event.sym == tcod.event.K_RIGHT or event.sym == tcod.event.K_l:
-                dx = 1
-            elif event.sym == tcod.event.K_y:  # Diagonal: up-left
-                dx, dy = -1, -1
-            elif event.sym == tcod.event.K_u:  # Diagonal: up-right
-                dx, dy = 1, -1
-            elif event.sym == tcod.event.K_b:  # Diagonal: down-left
-                dx, dy = -1, 1
-            elif event.sym == tcod.event.K_n:  # Diagonal: down-right
-                dx, dy = 1, 1
-            elif event.sym == tcod.event.K_ESCAPE:
-                self.running = False
-                return
-            elif event.sym == tcod.event.K_r:  # Regenerate world
-                self.initialize()
-                return
-                
-            # Try to move the hero
-            if dx != 0 or dy != 0:
-                new_x = self.hero.x + dx
-                new_y = self.hero.y + dy
-                
-                if self.generator.is_walkable(new_x, new_y):
-                    self.hero.move(dx, dy)
+            if self.generator.is_walkable(new_x, new_y):
+                self.hero.move(dx, dy)
+                self.update_camera()
     
-    def render(self, console):
+    def update_camera(self):
+        """Center camera on hero."""
+        tiles_wide = SCREEN_WIDTH // TILE_SIZE
+        tiles_high = (SCREEN_HEIGHT - 100) // TILE_SIZE
+        self.camera_x = max(0, min(self.hero.x - tiles_wide // 2, MAP_WIDTH - tiles_wide))
+        self.camera_y = max(0, min(self.hero.y - tiles_high // 2, MAP_HEIGHT - tiles_high))
+    
+    def render(self):
         """Render the game world."""
-        console.clear()
+        self.screen.fill(NES_PALETTE['black'])
         
         # Render terrain
+        tiles_wide = SCREEN_WIDTH // TILE_SIZE
+        tiles_high = (SCREEN_HEIGHT - 100) // TILE_SIZE
+        
         for (x, y), tile in self.terrain.items():
-            console.print(x, y, tile.char, fg=tile.color)
+            if self.camera_x <= x < self.camera_x + tiles_wide and self.camera_y <= y < self.camera_y + tiles_high:
+                screen_x = (x - self.camera_x) * TILE_SIZE
+                screen_y = (y - self.camera_y) * TILE_SIZE
+                color = self._get_tile_color(tile.char)
+                pygame.draw.rect(self.screen, color, (screen_x, screen_y, TILE_SIZE, TILE_SIZE))
         
         # Render hero
-        console.print(
-            self.hero.x, 
-            self.hero.y, 
-            self.hero.render_char(), 
-            fg=self.hero.color
-        )
+        hero_screen_x = (self.hero.x - self.camera_x) * TILE_SIZE
+        hero_screen_y = (self.hero.y - self.camera_y) * TILE_SIZE
+        pygame.draw.circle(self.screen, NES_PALETTE['hero'], 
+                          (hero_screen_x + TILE_SIZE // 2, hero_screen_y + TILE_SIZE // 2), 
+                          TILE_SIZE // 2)
         
         # Render UI
-        self._render_ui(console)
+        self._render_ui()
     
-    def _render_ui(self, console):
+    def _get_tile_color(self, char):
+        """Get NES color for tile character."""
+        color_map = {
+            '.': NES_PALETTE['grass'],
+            'T': NES_PALETTE['tree'],
+            '^': NES_PALETTE['rock'],
+            '~': NES_PALETTE['water'],
+        }
+        return color_map.get(char, NES_PALETTE['grass'])
+    
+    def _render_ui(self):
         """Render UI elements."""
-        # Status bar at bottom
-        hp_text = f"HP: {self.hero.hp}/{self.hero.max_hp}"
-        pos_text = f"Pos: ({self.hero.x}, {self.hero.y})"
-        help_text = "Arrow/hjkl:Move | r:Regen | ESC:Quit"
+        ui_y = SCREEN_HEIGHT - 90
+        pygame.draw.rect(self.screen, NES_PALETTE['ui_bg'], (0, ui_y, SCREEN_WIDTH, 90))
         
-        console.print(0, self.screen_height - 2, "=" * self.screen_width, fg=(100, 100, 100))
-        console.print(1, self.screen_height - 1, hp_text, fg=(255, 255, 255))
-        console.print(20, self.screen_height - 1, pos_text, fg=(255, 255, 255))
-        console.print(40, self.screen_height - 1, help_text, fg=(200, 200, 200))
+        font = pygame.font.Font(None, 36)
+        hp_text = font.render(f"HP: {self.hero.hp}/{self.hero.max_hp}", True, NES_PALETTE['ui_text'])
+        pos_text = font.render(f"Pos: ({self.hero.x}, {self.hero.y})", True, NES_PALETTE['ui_text'])
+        help_text = font.render("WASD/Arrows:Move | R:Regen | ESC:Quit", True, NES_PALETTE['ui_text'])
+        
+        self.screen.blit(hp_text, (10, ui_y + 10))
+        self.screen.blit(pos_text, (10, ui_y + 40))
+        self.screen.blit(help_text, (250, ui_y + 25))
 
 
 def main():
     """Main entry point."""
-    # Create the game
     game = Game()
     game.initialize()
     
-    # Create the console and context (using default font)
-    with tcod.context.new(
-        columns=game.screen_width,
-        rows=game.screen_height,
-        title=TITLE,
-        vsync=True,
-    ) as context:
-        console = tcod.Console(game.screen_width, game.screen_height, order="F")
+    # Main game loop
+    while game.running:
+        # Handle events
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                game.running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    game.running = False
+                elif event.key == pygame.K_r:
+                    game.initialize()
         
-        # Main game loop
-        while game.running:
-            # Render
-            game.render(console)
-            context.present(console)
-            
-            # Handle events
-            for event in tcod.event.wait():
-                context.convert_event(event)
-                game.handle_input(event)
+        # Handle continuous input
+        game.handle_input()
+        
+        # Render
+        game.render()
+        pygame.display.flip()
+        game.clock.tick(FPS)
+    
+    pygame.quit()
 
 
 if __name__ == "__main__":

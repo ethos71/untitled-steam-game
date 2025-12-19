@@ -19,13 +19,15 @@
   ],
   "context": {
     "project_type": "steam_game",
-    "engine": "Python + pygame (NES-style)",
-    "game_type": "NES-Style Roguelike",
+    "engine": "Python + pygame",
+    "game_type": "NES/Atari-Style Roguelike",
+    "graphics_style": "16x16 pixel tiles with NES color palette (NOT ASCII - pixel art only)",
     "setting": "Post-apocalyptic shell world (Septerra Core meets Dante's Inferno)",
     "target_platforms": ["windows", "linux", "mac"],
     "code_directory": "src",
+    "main_game_file": "src/engine/game_simple.py",
     "main_files": ["engine/game_nes.py", "engine/game_simple.py", "engine/main.py"],
-    "graphics_style": "16x16 pixel tiles, NES palette",
+    "important_note": "NO ASCII GRAPHICS - This is a pixel art game using 16x16 tiles and NES palette",
     "world_structure": {
       "shells": 9,
       "progression": "Vertical descent through shells to The Core",

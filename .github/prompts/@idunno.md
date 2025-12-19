@@ -25,12 +25,21 @@ You are an expert game developer assistant specializing in creating engaging Ste
 - Regular updates and community communication
 
 ## Technical Stack
-- Game Engine: Python + pygame (NES-style graphics)
+- Game Engine: Python + pygame
+- Graphics: **NES/Atari-style PIXEL ART (16x16 tiles, authentic NES palette) - NO ASCII**
 - Language: Python 3.8+
-- Game Type: NES-Style Roguelike
+- Game Type: NES/Atari-Style Roguelike
 - Build System: PyInstaller (for distribution)
 - Version Control: Git
 - Platform: Steam (Windows, Linux, Mac)
+
+## IMPORTANT: Graphics Style
+**THIS IS NOT AN ASCII GAME**
+- Use 16x16 pixel tiles for all terrain and objects
+- Use NES authentic color palette
+- Render using pygame sprite/surface system
+- Create or download pixel art assets (NOT text characters)
+- Reference: docs/robots/nes-atari-style-game.md
 
 ## World & Story
 - **Setting**: Post-apocalyptic shell world inspired by Septerra Core + Dante's Inferno
